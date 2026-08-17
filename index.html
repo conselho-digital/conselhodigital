@@ -1660,7 +1660,7 @@ window.addEventListener('message', e => {
     if (el) el.scrollIntoView({ behavior:'smooth', block:'start' });
   }
 });
-fetch('/content.json').then(r=>r.json()).then(applyContent).catch(()=>{});
+fetch('/content.json?_=' + Date.now()).then(r=>r.json()).then(applyContent).catch(()=>{});
 
 /* ── COOKIE BANNER ── */
 (function cookieConsent() {
