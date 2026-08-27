@@ -199,13 +199,13 @@
         "bg": "linear-gradient(135deg,#071020 0%,#00C4B4 100%)"
       },
       {
-        "category": "",
+        "category": "Terraplenagem",
         "title": "Águia Terraplenagem",
         "link": "https://aguiaterraplenagem.com.br/",
         "span2": false,
         "image": "meus/1786977378132-aguia.webp",
         "mobile_image": "meus/1786973841847-aguiaM.webp",
-        "bg": "linear-gradient(135deg,#071020 0%,#00C4B4 100%)"
+        "bg": "linear-gradient(135deg,#1A1000 0%,#C9920A 100%)"
       }
     ]
   },
