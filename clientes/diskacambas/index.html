@@ -10,13 +10,12 @@
 <style>
 /* ─── RESET & BASE ─── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
   font-family: 'Work Sans', sans-serif;
   font-size: 16px;
   color: #2C1A00;
   background: #c8a97a;
-  overflow-x: hidden;
 }
 
 /* ─── SKEUOMORPHIC TOKENS ─── */
@@ -464,6 +463,8 @@ section { padding: 80px 24px; }
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   position: relative;
+  overflow: clip;
+  padding-bottom: 4px;
 }
 .steps-grid::before {
   content: '';
@@ -1108,7 +1109,7 @@ footer {
 <script>
 (function(){
   var cards = document.querySelectorAll('.step-card');
-  var delays = [0, 0.15, 0.3, 0.45];
+  var delays = [0, 0.12, 0.24, 0.36];
   var observer = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
       if(entry.isIntersecting){
@@ -1119,7 +1120,7 @@ footer {
         observer.unobserve(el);
       }
     });
-  }, { threshold: 0.2 });
+  }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
   cards.forEach(function(c){ observer.observe(c); });
 })();
 </script>
