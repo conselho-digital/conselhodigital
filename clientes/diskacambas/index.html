@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diskaçambas – Caçambas e Serviços de Terraplanagem em Campinas</title>
+<meta name="description" content="Aluguel de caçambas, limpeza de terreno, retirada de entulho, venda de terra e cascalho em Campinas e região. Ligue (19) 99849-9148.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Work+Sans:wght@400;500;600&display=swap">
+<style>
+/* ─── RESET & BASE ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  color: #2C1A00;
+  background: #c8a97a;
+  overflow-x: hidden;
+}
+
+/* ─── SKEUOMORPHIC TOKENS ─── */
+:root {
+  --orange:      #E07B00;
+  --orange-dark: #B05E00;
+  --orange-light:#FF9A2E;
+  --orange-glow: rgba(224,123,0,0.4);
+  --concrete:    #9E8B72;
+  --concrete-dk: #7A6A55;
+  --metal:       #C4A86A;
+  --metal-dark:  #8C7040;
+  --cream:       #F5EDDE;
+  --brown-dk:    #2C1A00;
+  --text-body:   #3D2800;
+  --radius-btn:  8px;
+  --shadow-btn:  0 6px 0 var(--orange-dark), 0 8px 20px rgba(0,0,0,0.45);
+  --shadow-card: 0 4px 0 rgba(0,0,0,0.25), 0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.15);
+  --texture-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+}
+
+/* ─── CONCRETE TEXTURE ─── */
+.tex-concrete {
+  background-color: var(--concrete);
+  background-image:
+    var(--texture-noise),
+    linear-gradient(160deg, #b09878 0%, #8a7560 40%, #9e8b72 70%, #7a6655 100%);
+}
+.tex-asphalt {
+  background-color: #3a3228;
+  background-image:
+    var(--texture-noise),
+    linear-gradient(180deg, #3a3228 0%, #2a231a 60%, #1e1a12 100%);
+}
+.tex-orange-metal {
+  background:
+    var(--texture-noise),
+    linear-gradient(160deg, var(--orange-light) 0%, var(--orange) 40%, var(--orange-dark) 80%, #7A3A00 100%);
+}
+.tex-cream {
+  background-color: var(--cream);
+  background-image:
+    var(--texture-noise),
+    linear-gradient(180deg, #f5edde 0%, #e8dcc8 100%);
+}
+
+/* ─── SKEUOMORPHIC BUTTON ─── */
+.btn-skeu {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  border-radius: var(--radius-btn);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.02em;
+}
+.btn-skeu::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.22) 0%, transparent 100%);
+  border-radius: var(--radius-btn) var(--radius-btn) 0 0;
+  pointer-events: none;
+}
+.btn-skeu:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 var(--orange-dark), 0 4px 10px rgba(0,0,0,0.35) !important;
+}
+
+.btn-primary {
+  background: linear-gradient(170deg, var(--orange-light) 0%, var(--orange) 50%, var(--orange-dark) 100%);
+  color: #fff;
+  box-shadow: var(--shadow-btn);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+.btn-primary:hover {
+  background: linear-gradient(170deg, #FFB040 0%, var(--orange-light) 50%, var(--orange) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 var(--orange-dark), 0 12px 28px rgba(0,0,0,0.5);
+}
+
+.btn-secondary {
+  background: linear-gradient(170deg, #5a5040 0%, #3a3028 50%, #2a2018 100%);
+  color: #F5EDDE;
+  box-shadow: 0 6px 0 #1a1208, 0 8px 20px rgba(0,0,0,0.55);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+}
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 #1a1208, 0 12px 28px rgba(0,0,0,0.6);
+}
+
+.btn-phone {
+  background: linear-gradient(170deg, #6abf69 0%, #388e3c 50%, #1b5e20 100%);
+  color: #fff;
+  box-shadow: 0 6px 0 #0a3d10, 0 8px 20px rgba(0,0,0,0.45);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+.btn-phone:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 #0a3d10, 0 12px 28px rgba(0,0,0,0.5);
+}
+
+/* ─── NAV ─── */
+#nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 0 24px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(180deg, #3a3028 0%, #2a2018 55%, #1e1a12 100%);
+  box-shadow: 0 4px 0 #0a0804, 0 6px 24px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.08);
+  border-bottom: 2px solid var(--metal-dark);
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.nav-logo-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(145deg, var(--orange-light), var(--orange-dark));
+  box-shadow: 0 3px 0 #7A3A00, 0 4px 10px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.nav-brand {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--cream);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+  line-height: 1.1;
+}
+.nav-brand span { color: var(--orange-light); }
+.nav-phone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--cream);
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: linear-gradient(170deg, #6abf69 0%, #388e3c 50%, #1b5e20 100%);
+  box-shadow: 0 4px 0 #0a3d10, 0 5px 14px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.18);
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+.nav-phone:hover { transform: translateY(-2px); box-shadow: 0 6px 0 #0a3d10, 0 8px 20px rgba(0,0,0,0.5); }
+.nav-phone:active { transform: translateY(2px); box-shadow: 0 2px 0 #0a3d10, 0 3px 8px rgba(0,0,0,0.4); }
+.nav-links { display: flex; gap: 24px; }
+.nav-links a {
+  color: var(--cream);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.92rem;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+.nav-links a:hover { opacity: 1; color: var(--orange-light); }
+
+/* ─── HERO ─── */
+#hero {
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  padding: 80px 60px 60px;
+  position: relative;
+  overflow: hidden;
+}
+#hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #2a1a00 0%, #3d2800 40%, #1a0f00 100%);
+  background-image:
+    var(--texture-noise),
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(224,123,0,0.15) 0%, transparent 60%),
+    linear-gradient(135deg, #2a1a00 0%, #3d2800 40%, #1a0f00 100%);
+  z-index: 0;
+}
+.hero-stripes {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 40px,
+    rgba(224,123,0,0.04) 40px,
+    rgba(224,123,0,0.04) 80px
+  );
+}
+.hero-content { position: relative; z-index: 1; }
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(170deg, var(--orange) 0%, var(--orange-dark) 100%);
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 6px;
+  box-shadow: 0 3px 0 var(--orange-dark), 0 4px 12px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.2);
+  margin-bottom: 24px;
+}
+.hero-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  line-height: 1.05;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6), 0 4px 24px rgba(0,0,0,0.4);
+  margin-bottom: 20px;
+}
+.hero-title .highlight {
+  color: var(--orange-light);
+  display: block;
+}
+.hero-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(245,237,222,0.82);
+  margin-bottom: 36px;
+  max-width: 480px;
+}
+.hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
+.hero-stats {
+  display: flex;
+  gap: 32px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.stat-item { text-align: left; }
+.stat-num {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: var(--orange-light);
+  text-shadow: 0 0 20px rgba(224,123,0,0.6);
+  line-height: 1;
+}
+.stat-label { font-size: 0.82rem; color: rgba(245,237,222,0.6); margin-top: 4px; }
+
+/* hero visual */
+.hero-visual {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-card {
+  width: 100%;
+  max-width: 480px;
+  background: linear-gradient(145deg, rgba(60,45,28,0.9) 0%, rgba(40,28,14,0.95) 100%);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  box-shadow: var(--shadow-card), inset 0 0 60px rgba(0,0,0,0.3);
+  padding: 32px;
+  backdrop-filter: blur(4px);
+}
+.hero-card-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--orange-light);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.service-pill-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.service-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: linear-gradient(145deg, rgba(80,60,30,0.8) 0%, rgba(50,35,15,0.9) 100%);
+  border: 1px solid rgba(224,123,0,0.25);
+  box-shadow: 0 3px 0 rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.service-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06);
+  border-color: rgba(224,123,0,0.5);
+}
+.pill-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: linear-gradient(145deg, var(--orange) 0%, var(--orange-dark) 100%);
+  box-shadow: 0 2px 0 rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.pill-text {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: var(--cream);
+  line-height: 1.3;
+}
+
+/* ─── SECTION STRUCTURE ─── */
+section { padding: 80px 24px; }
+.container { max-width: 1100px; margin: 0 auto; }
+.section-label {
+  display: inline-block;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--orange-dark);
+  background: linear-gradient(170deg, rgba(224,123,0,0.18) 0%, rgba(224,123,0,0.08) 100%);
+  border: 1px solid rgba(224,123,0,0.3);
+  padding: 5px 12px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 2px 4px rgba(0,0,0,0.1);
+}
+.section-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+.section-sub {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  opacity: 0.75;
+  max-width: 560px;
+  margin-bottom: 48px;
+}
+
+/* ─── SERVICES ─── */
+#servicos {
+  background-color: var(--cream);
+  background-image:
+    var(--texture-noise),
+    linear-gradient(180deg, #f5edde 0%, #e8dcc8 100%);
+}
+#servicos .section-title { color: var(--brown-dk); }
+#servicos .section-sub { color: var(--text-body); }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.srv-card {
+  background:
+    var(--texture-noise),
+    linear-gradient(160deg, #fff 0%, #f0e8d8 60%, #e0d0b8 100%);
+  border-radius: 14px;
+  border: 1px solid rgba(180,140,80,0.3);
+  padding: 28px 24px;
+  box-shadow: 0 4px 0 rgba(140,100,40,0.3), 0 8px 24px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.8), inset 0 -1px 0 rgba(140,100,40,0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: default;
+}
+.srv-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 0 rgba(140,100,40,0.3), 0 16px 32px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.8);
+}
+.srv-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  margin-bottom: 18px;
+  background: linear-gradient(145deg, var(--orange-light) 0%, var(--orange) 50%, var(--orange-dark) 100%);
+  box-shadow: 0 4px 0 var(--orange-dark), 0 6px 16px rgba(224,123,0,0.4), inset 0 1px 0 rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.srv-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--brown-dk);
+  margin-bottom: 8px;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+}
+.srv-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-body);
+  opacity: 0.85;
+}
+
+/* ─── HOW IT WORKS ─── */
+#como-funciona {
+  background: linear-gradient(180deg, #2a1a00 0%, #1e1200 100%);
+  background-image: var(--texture-noise), linear-gradient(180deg, #2a1a00 0%, #1e1200 100%);
+}
+#como-funciona .section-label { color: var(--orange-light); border-color: rgba(255,154,46,0.3); background: rgba(255,154,46,0.1); }
+#como-funciona .section-title { color: var(--cream); }
+#como-funciona .section-sub { color: rgba(245,237,222,0.65); }
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  position: relative;
+}
+.steps-grid::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: calc(12.5% + 20px);
+  right: calc(12.5% + 20px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--orange-dark), var(--orange-light), var(--orange-dark));
+  box-shadow: 0 1px 0 rgba(0,0,0,0.5), 0 0 12px rgba(224,123,0,0.3);
+}
+.step-card {
+  background: linear-gradient(160deg, rgba(70,50,20,0.7) 0%, rgba(40,28,10,0.9) 100%);
+  border: 1px solid rgba(224,123,0,0.2);
+  border-radius: 14px;
+  padding: 28px 20px 24px;
+  text-align: center;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06);
+  position: relative;
+}
+.step-num {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--orange-light) 0%, var(--orange) 50%, var(--orange-dark) 100%);
+  box-shadow: 0 4px 0 var(--orange-dark), 0 6px 20px rgba(224,123,0,0.5), inset 0 1px 0 rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  margin: 0 auto 18px;
+  position: relative;
+  z-index: 1;
+}
+.step-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--cream);
+  margin-bottom: 10px;
+}
+.step-desc {
+  font-size: 0.87rem;
+  line-height: 1.6;
+  color: rgba(245,237,222,0.65);
+}
+
+/* ─── COVERAGE AREA ─── */
+#atendimento {
+  background-color: var(--concrete);
+  background-image:
+    var(--texture-noise),
+    linear-gradient(180deg, #b09878 0%, #9e8b72 50%, #8a7862 100%);
+}
+#atendimento .section-label { color: #2a1a00; border-color: rgba(42,26,0,0.3); background: rgba(42,26,0,0.1); }
+#atendimento .section-title { color: #1a0f00; }
+#atendimento .section-sub { color: #3d2800; }
+.area-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+.city-list { display: flex; flex-wrap: wrap; gap: 10px; }
+.city-badge {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: #1a0f00;
+  background: linear-gradient(170deg, rgba(255,255,255,0.6) 0%, rgba(220,200,165,0.8) 100%);
+  border: 1px solid rgba(140,100,40,0.3);
+  box-shadow: 0 2px 0 rgba(140,100,40,0.2), 0 3px 8px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.7);
+}
+.area-contact-box {
+  background: linear-gradient(160deg, rgba(42,26,0,0.85) 0%, rgba(28,16,0,0.95) 100%);
+  border-radius: 18px;
+  border: 1px solid rgba(224,123,0,0.2);
+  padding: 36px;
+  box-shadow: 0 6px 0 rgba(0,0,0,0.4), 0 12px 36px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+.contact-label {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orange-light);
+  margin-bottom: 12px;
+}
+.contact-phone {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 2.2rem;
+  color: var(--cream);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+.contact-info {
+  font-size: 0.9rem;
+  color: rgba(245,237,222,0.65);
+  margin-bottom: 28px;
+}
+.contact-btns { display: flex; flex-direction: column; gap: 12px; }
+
+/* ─── CTA SECTION ─── */
+#cta {
+  background: linear-gradient(135deg, #1a0f00 0%, #2d1a00 50%, #1a0f00 100%);
+  background-image: var(--texture-noise), linear-gradient(135deg, #1a0f00 0%, #2d1a00 50%, #1a0f00 100%);
+  text-align: center;
+  padding: 100px 24px;
+}
+.cta-glow {
+  position: relative;
+}
+.cta-glow::before {
+  content: '';
+  position: absolute;
+  top: -60px; left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(224,123,0,0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+#cta .section-label { color: var(--orange-light); border-color: rgba(255,154,46,0.3); background: rgba(255,154,46,0.1); }
+#cta .section-title { color: var(--cream); }
+#cta .section-sub { color: rgba(245,237,222,0.65); margin: 0 auto 40px; }
+.cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: linear-gradient(180deg, #100a00 0%, #0a0500 100%);
+  padding: 40px 24px 60px;
+  border-top: 2px solid #2a1a00;
+  box-shadow: inset 0 4px 20px rgba(0,0,0,0.5);
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.footer-logo {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--cream);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+}
+.footer-logo span { color: var(--orange-light); }
+.footer-copy {
+  font-size: 0.85rem;
+  color: rgba(245,237,222,0.4);
+  text-align: center;
+}
+.footer-dev {
+  font-size: 0.78rem;
+  color: rgba(245,237,222,0.3);
+  text-align: right;
+}
+.footer-dev a { color: var(--orange-light); text-decoration: none; }
+
+/* ─── FLOATING WHATSAPP ─── */
+#wa-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 200;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #6abf69 0%, #388e3c 50%, #1b5e20 100%);
+  box-shadow: 0 6px 0 #0a3d10, 0 8px 24px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+  animation: wa-pulse 3s ease-in-out infinite;
+}
+#wa-float:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 0 #0a3d10, 0 14px 32px rgba(0,0,0,0.5);
+  animation: none;
+}
+#wa-float:active { transform: translateY(2px); box-shadow: 0 3px 0 #0a3d10, 0 4px 12px rgba(0,0,0,0.4); }
+@keyframes wa-pulse {
+  0%, 100% { box-shadow: 0 6px 0 #0a3d10, 0 8px 24px rgba(0,0,0,0.45), 0 0 0 0 rgba(56,142,60,0.4); }
+  50% { box-shadow: 0 6px 0 #0a3d10, 0 8px 24px rgba(0,0,0,0.45), 0 0 0 14px rgba(56,142,60,0); }
+}
+.wa-tooltip {
+  position: absolute;
+  right: 70px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(170deg, #2a2018 0%, #1a1208 100%);
+  color: var(--cream);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.82rem;
+  padding: 8px 14px;
+  border-radius: 8px;
+  white-space: nowrap;
+  box-shadow: 0 3px 0 rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+.wa-tooltip::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-left-color: #1a1208;
+}
+#wa-float:hover .wa-tooltip { opacity: 1; }
+
+/* ─── DIVIDER ─── */
+.divider-bolt {
+  width: 100%;
+  height: 24px;
+  background: linear-gradient(90deg, transparent 0%, var(--orange) 30%, var(--orange-light) 50%, var(--orange) 70%, transparent 100%);
+  opacity: 0.6;
+  mask-image: repeating-linear-gradient(90deg, black 0, black 2px, transparent 2px, transparent 8px);
+}
+
+/* ─── MOBILE NAV TOGGLE ─── */
+.nav-mobile-phone {
+  display: none;
+}
+.menu-toggle { display: none; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  #hero { padding: 60px 32px; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .steps-grid { grid-template-columns: repeat(2, 1fr); }
+  .steps-grid::before { display: none; }
+}
+@media (max-width: 768px) {
+  #hero {
+    grid-template-columns: 1fr;
+    padding: 40px 20px 48px;
+    gap: 36px;
+    text-align: center;
+  }
+  .hero-ctas { justify-content: center; }
+  .hero-stats { justify-content: center; gap: 24px; }
+  .hero-subtitle { margin: 0 auto 28px; }
+  .hero-visual { display: none; }
+  .services-grid { grid-template-columns: 1fr; gap: 16px; }
+  .steps-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .area-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .nav-phone { display: none; }
+  .nav-mobile-phone { display: flex; }
+  section { padding: 56px 16px; }
+  .contact-phone { font-size: 1.8rem; }
+}
+@media (max-width: 480px) {
+  .steps-grid { grid-template-columns: 1fr; }
+  .hero-title { font-size: 2.1rem; }
+  .service-pill-grid { grid-template-columns: 1fr; }
+  #wa-float { bottom: 20px; right: 20px; width: 56px; height: 56px; }
+}
+
+/* ─── FOCUS / ACCESSIBILITY ─── */
+:focus-visible { outline: 3px solid var(--orange-light); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="nav" role="navigation" aria-label="Navegação principal">
+  <a class="nav-logo" href="#" aria-label="Diskaçambas - Início">
+    <div class="nav-logo-icon" aria-hidden="true">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+        <path d="M3 17L5 7H19L21 17H3Z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round" fill="rgba(255,255,255,0.15)"/>
+        <path d="M6 17V20M18 17V20" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        <path d="M7 7V5L17 5V7" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div>
+      <div class="nav-brand">Diska<span>çambas</span></div>
+    </div>
+  </a>
+  <div class="nav-links" aria-label="Links de navegação">
+    <a href="#servicos">Serviços</a>
+    <a href="#como-funciona">Como funciona</a>
+    <a href="#atendimento">Atendimento</a>
+    <a href="#cta">Contato</a>
+  </div>
+  <a href="tel:+5519998499148" class="nav-phone" aria-label="Ligar para (19) 99849-9148">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" fill="white"/>
+    </svg>
+    (19) 99849-9148
+  </a>
+  <!-- mobile phone icon only -->
+  <a href="tel:+5519998499148" class="nav-mobile-phone btn-skeu btn-phone" style="padding:10px 14px;font-size:0.85rem;" aria-label="Ligar">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+      <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+    </svg>
+    Ligar
+  </a>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero" aria-label="Apresentação">
+  <div class="hero-stripes" aria-hidden="true"></div>
+  <div class="hero-content">
+    <div class="hero-tag" aria-hidden="true">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+      Campinas e região
+    </div>
+    <h1 class="hero-title">
+      Caçambas e<br>
+      <span class="highlight">Terraplanagem</span>
+      de Ponta a Ponta
+    </h1>
+    <p class="hero-subtitle">
+      Aluguel de caçambas, limpeza de terreno, retirada de entulho, venda de terra, cascalho e desaterro — tudo com uma ligação.
+    </p>
+    <div class="hero-ctas">
+      <a href="https://wa.me/5519998499148" class="btn-skeu btn-primary" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Pedir orçamento
+      </a>
+      <a href="tel:+5519998499148" class="btn-skeu btn-secondary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+        </svg>
+        (19) 99849-9148
+      </a>
+    </div>
+    <div class="hero-stats" role="list" aria-label="Estatísticas">
+      <div class="stat-item" role="listitem">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Clientes atendidos</div>
+      </div>
+      <div class="stat-item" role="listitem">
+        <div class="stat-num">24h</div>
+        <div class="stat-label">Resposta rápida</div>
+      </div>
+      <div class="stat-item" role="listitem">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Anos de experiência</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual" aria-hidden="true">
+    <div class="hero-card">
+      <div class="hero-card-title">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 17L5 7H19L21 17H3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        Nossos Serviços
+      </div>
+      <div class="service-pill-grid">
+        <div class="service-pill">
+          <div class="pill-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 17L5 7H19L21 17H3Z" stroke="white" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 17V19M18 17V19" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="pill-text">Aluguel de Caçambas</div>
+        </div>
+        <div class="service-pill">
+          <div class="pill-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 21V7l9-4 9 4v14" stroke="white" stroke-width="1.8"/><path d="M9 21V12h6v9" stroke="white" stroke-width="1.8"/></svg>
+          </div>
+          <div class="pill-text">Limpeza de Terreno</div>
+        </div>
+        <div class="service-pill">
+          <div class="pill-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M2 20h20M5 20V10l7-6 7 6v10" stroke="white" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 20v-5h4v5" stroke="white" stroke-width="1.8"/></svg>
+          </div>
+          <div class="pill-text">Retirada de Entulho</div>
+        </div>
+        <div class="service-pill">
+          <div class="pill-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="16" rx="9" ry="4" stroke="white" stroke-width="1.8"/><path d="M3 16V8c0-2.2 4-4 9-4s9 1.8 9 4v8" stroke="white" stroke-width="1.8"/></svg>
+          </div>
+          <div class="pill-text">Terra para Aterro</div>
+        </div>
+        <div class="service-pill">
+          <div class="pill-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 3l14 0M5 3 3 21M19 3l2 18M3 21h18" stroke="white" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 12h8" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="pill-text">Desaterro</div>
+        </div>
+        <div class="service-pill">
+          <div class="pill-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="6" cy="18" r="3" stroke="white" stroke-width="1.8"/><circle cx="13" cy="8" r="3" stroke="white" stroke-width="1.8"/><circle cx="19" cy="17" r="3" stroke="white" stroke-width="1.8"/></svg>
+          </div>
+          <div class="pill-text">Venda de Cascalho</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-bolt" aria-hidden="true"></div>
+
+<!-- ── SERVICES ── -->
+<section id="servicos" aria-label="Nossos serviços">
+  <div class="container">
+    <div class="section-label">O que fazemos</div>
+    <h2 class="section-title" style="color:var(--brown-dk)">Tudo que sua obra precisa,<br>em uma ligação</h2>
+    <p class="section-sub">Do aluguel da caçamba até a terraplanagem completa — atendemos construtoras, empresas e clientes residenciais.</p>
+    <div class="services-grid">
+
+      <div class="srv-card">
+        <div class="srv-icon-wrap" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+            <path d="M3 17L5 7H19L21 17H3Z" stroke="white" stroke-width="2" stroke-linejoin="round" fill="rgba(255,255,255,0.15)"/>
+            <path d="M6 17V20M18 17V20" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M7 7V5L17 5V7" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="srv-title">Aluguel de Caçambas</h3>
+        <p class="srv-desc">Caçambas de entulho para obras, reformas e demolições. Entrega e retirada no prazo combinado, direto no seu endereço.</p>
+      </div>
+
+      <div class="srv-card">
+        <div class="srv-icon-wrap" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+            <path d="M3 7h18v2H3zM5 9l1 12h12l1-12" stroke="white" stroke-width="1.8" stroke-linejoin="round"/>
+            <path d="M9 12v6M12 12v6M15 12v6" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="srv-title">Retirada de Entulho</h3>
+        <p class="srv-desc">Removemos todo tipo de entulho: restos de obra, materiais demolidos, terra, pedras e mais — rápido e sem sujeira.</p>
+      </div>
+
+      <div class="srv-card">
+        <div class="srv-icon-wrap" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+            <path d="M3 21h18M5 21V10l7-6 7 6v11" stroke="white" stroke-width="1.8" stroke-linejoin="round"/>
+            <path d="M9 21v-5h6v5" stroke="white" stroke-width="1.8"/>
+            <path d="M3 10h18" stroke="white" stroke-width="1.4" stroke-dasharray="3 2" opacity="0.5"/>
+          </svg>
+        </div>
+        <h3 class="srv-title">Limpeza de Terreno</h3>
+        <p class="srv-desc">Limpamos terrenos com vegetação, entulho acumulado ou material indesejado — deixamos o terreno pronto para construir.</p>
+      </div>
+
+      <div class="srv-card">
+        <div class="srv-icon-wrap" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+            <ellipse cx="12" cy="17" rx="9" ry="3.5" stroke="white" stroke-width="1.8"/>
+            <path d="M3 17V9c0-2 4-3.5 9-3.5s9 1.5 9 3.5v8" stroke="white" stroke-width="1.8"/>
+            <path d="M3 13c0 2 4 3.5 9 3.5s9-1.5 9-3.5" stroke="white" stroke-width="1.4" opacity="0.5"/>
+          </svg>
+        </div>
+        <h3 class="srv-title">Venda de Terra para Aterro</h3>
+        <p class="srv-desc">Terra selecionada e de qualidade para aterros em obras, jardins, quintais e terraplanagem. Entrega no seu canteiro.</p>
+      </div>
+
+      <div class="srv-card">
+        <div class="srv-icon-wrap" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+            <path d="M4 20h16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <path d="M12 20V6" stroke="white" stroke-width="1.8" stroke-dasharray="3 2"/>
+            <path d="M7 11l5-7 5 7" stroke="white" stroke-width="2" stroke-linejoin="round" fill="rgba(255,255,255,0.1)"/>
+            <path d="M5 15h6M13 15h6" stroke="white" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/>
+          </svg>
+        </div>
+        <h3 class="srv-title">Desaterro</h3>
+        <p class="srv-desc">Escavação e remoção de terra para nivelar terrenos e preparar o solo para fundação. Ideal para construção civil.</p>
+      </div>
+
+      <div class="srv-card">
+        <div class="srv-icon-wrap" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+            <circle cx="6" cy="17" r="3" stroke="white" stroke-width="1.8" fill="rgba(255,255,255,0.15)"/>
+            <circle cx="13" cy="9" r="3" stroke="white" stroke-width="1.8" fill="rgba(255,255,255,0.15)"/>
+            <circle cx="20" cy="17" r="2.5" stroke="white" stroke-width="1.8" fill="rgba(255,255,255,0.15)"/>
+            <circle cx="10" cy="17" r="1.5" stroke="white" stroke-width="1.4" fill="rgba(255,255,255,0.1)"/>
+          </svg>
+        </div>
+        <h3 class="srv-title">Venda de Cascalho</h3>
+        <p class="srv-desc">Cascalho para drenagem, calçadas, estradas internas e obras em geral. Material selecionado com granulometria ideal.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider-bolt" aria-hidden="true"></div>
+
+<!-- ── HOW IT WORKS ── -->
+<section id="como-funciona" aria-label="Como funciona">
+  <div class="container">
+    <div class="section-label">Processo simples</div>
+    <h2 class="section-title" style="color:var(--cream)">Do contato à entrega<br>sem complicação</h2>
+    <p class="section-sub" style="color:rgba(245,237,222,0.65)">Atendemos rápido e resolvemos rápido — sem burocracia.</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">1</div>
+        <h3 class="step-title">Fale conosco</h3>
+        <p class="step-desc">Ligue ou mande mensagem no WhatsApp. Atendemos na hora com rapidez e sem enrolação.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">2</div>
+        <h3 class="step-title">Orçamento grátis</h3>
+        <p class="step-desc">Enviamos o orçamento sem compromisso. Preço justo e transparente, sem surpresas no final.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">3</div>
+        <h3 class="step-title">Agendamos</h3>
+        <p class="step-desc">Você escolhe o melhor dia e horário. Nos comprometemos com pontualidade na entrega.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num" aria-hidden="true">4</div>
+        <h3 class="step-title">Serviço realizado</h3>
+        <p class="step-desc">Executamos com cuidado e limpeza. Recolhemos a caçamba ou finalizamos o serviço no prazo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-bolt" aria-hidden="true"></div>
+
+<!-- ── COVERAGE ── -->
+<section id="atendimento" aria-label="Área de atendimento">
+  <div class="container">
+    <div class="section-label">Onde atendemos</div>
+    <h2 class="section-title">Campinas e toda a região</h2>
+    <p class="section-sub">Atendemos construtoras, reformas residenciais, indústrias e obras de grande porte.</p>
+    <div class="area-grid">
+      <div>
+        <p style="font-weight:600;color:var(--brown-dk);margin-bottom:20px;font-family:'Outfit',sans-serif;">Cidades atendidas:</p>
+        <div class="city-list" role="list">
+          <span class="city-badge" role="listitem">Campinas</span>
+          <span class="city-badge" role="listitem">Sumaré</span>
+          <span class="city-badge" role="listitem">Americana</span>
+          <span class="city-badge" role="listitem">Santa Bárbara d'Oeste</span>
+          <span class="city-badge" role="listitem">Indaiatuba</span>
+          <span class="city-badge" role="listitem">Valinhos</span>
+          <span class="city-badge" role="listitem">Vinhedo</span>
+          <span class="city-badge" role="listitem">Hortolândia</span>
+          <span class="city-badge" role="listitem">Nova Odessa</span>
+          <span class="city-badge" role="listitem">Paulínia</span>
+          <span class="city-badge" role="listitem">Monte Mor</span>
+          <span class="city-badge" role="listitem">Itatiba</span>
+        </div>
+      </div>
+      <div class="area-contact-box">
+        <div class="contact-label">Fale agora</div>
+        <div class="contact-phone">(19) 99849-9148</div>
+        <p class="contact-info">Atendimento de segunda a sábado, das 7h às 18h</p>
+        <div class="contact-btns">
+          <a href="https://wa.me/5519998499148" class="btn-skeu btn-primary" target="_blank" rel="noopener" style="justify-content:center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Solicitar pelo WhatsApp
+          </a>
+          <a href="tel:+5519998499148" class="btn-skeu btn-phone" style="justify-content:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+              <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+            </svg>
+            Ligar agora
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-bolt" aria-hidden="true"></div>
+
+<!-- ── CTA ── -->
+<section id="cta" aria-label="Contato">
+  <div class="container">
+    <div class="cta-glow" aria-hidden="true"></div>
+    <div class="section-label">Pronto para começar?</div>
+    <h2 class="section-title" style="color:var(--cream)">Precisa de caçamba ou<br>serviço de terraplanagem?</h2>
+    <p class="section-sub">Entre em contato agora e receba um orçamento gratuito. Atendimento rápido e pontual na Grande Campinas.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/5519998499148" class="btn-skeu btn-primary" target="_blank" rel="noopener" style="font-size:1.1rem;padding:18px 36px;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Pedir orçamento grátis
+      </a>
+      <a href="tel:+5519998499148" class="btn-skeu btn-secondary" style="font-size:1.1rem;padding:18px 36px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+        </svg>
+        (19) 99849-9148
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Diska<span>çambas</span></div>
+    <div class="footer-copy">
+      © 2025 Diskaçambas. Todos os direitos reservados.<br>
+      Campinas e região — (19) 99849-9148
+    </div>
+    <div class="footer-dev">
+      Site desenvolvido por<br>
+      <a href="https://conselhodigital.com" target="_blank" rel="noopener">Conselho Digital</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ── FLOATING WHATSAPP ── -->
+<a id="wa-float" href="https://wa.me/5519998499148" target="_blank" rel="noopener" aria-label="Conversar pelo WhatsApp — (19) 99849-9148">
+  <div class="wa-tooltip">Falar no WhatsApp</div>
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+</body>
+</html>
