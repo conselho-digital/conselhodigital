@@ -4,75 +4,124 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Demos de Clientes | Conselho Digital</title>
+<title>Nossos Clientes | Conselho Digital</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{min-height:100%;font-family:'Inter',system-ui,sans-serif;background:#0b0e14;color:#e2e8f0}
 body{display:flex;flex-direction:column;align-items:center;padding:48px 20px}
 
 header{text-align:center;margin-bottom:48px}
-.logo{font-size:13px;font-weight:700;color:#3b82f6;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
+.logo-link{text-decoration:none;display:inline-block;margin-bottom:16px}
+.logo{font-size:13px;font-weight:700;color:#3b82f6;letter-spacing:1px;text-transform:uppercase}
 h1{font-size:28px;font-weight:700;color:#f1f5f9;margin-bottom:8px}
 .sub{font-size:14px;color:#64748b;max-width:420px;line-height:1.6}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;width:100%;max-width:900px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;width:100%;max-width:960px}
 
 .card{display:block;text-decoration:none;background:#111622;border:1px solid #1e2a40;border-radius:12px;overflow:hidden;transition:all .2s}
 .card:hover{border-color:#3b82f6;transform:translateY(-2px);box-shadow:0 8px 24px rgba(59,130,246,.12)}
-.card-thumb{width:100%;aspect-ratio:16/9;background:#0d1220;display:flex;align-items:center;justify-content:center;font-size:36px;color:#1e2a40;overflow:hidden}
-.card-thumb img{width:100%;height:100%;object-fit:cover}
-.card-body{padding:14px 16px}
-.card-cat{font-size:10px;font-weight:600;color:#3b82f6;text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px}
-.card-name{font-size:15px;font-weight:600;color:#f1f5f9;margin-bottom:3px}
-.card-city{font-size:12px;color:#64748b}
 
-.empty{text-align:center;color:#334155;font-size:13px;padding:40px;border:1px dashed #1e2a40;border-radius:12px;width:100%;max-width:900px}
-.empty-icon{font-size:32px;margin-bottom:12px;opacity:.4}
+.card-thumb{width:100%;aspect-ratio:16/9;background:#0d1220;overflow:hidden;position:relative}
+.card-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.card:hover .card-thumb img{transform:scale(1.04)}
+.card-thumb-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:36px;color:#1e2a40}
+
+.card-body{padding:16px}
+.card-cat{font-size:10px;font-weight:600;color:#3b82f6;text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px}
+.card-name{font-size:15px;font-weight:600;color:#f1f5f9;margin-bottom:4px}
+.card-link{font-size:12px;color:#475569;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.card-arrow{
+  position:absolute;top:12px;right:12px;
+  width:32px;height:32px;border-radius:50%;
+  background:rgba(59,130,246,.12);border:1px solid rgba(59,130,246,.2);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .2s;
+}
+.card-body{position:relative}
+.card:hover .card-arrow{opacity:1}
+
+.back{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:13px;color:#475569;text-decoration:none;
+  margin-bottom:32px;transition:color .15s;
+}
+.back:hover{color:#94a3b8}
+.back svg{opacity:.7}
 </style>
 </head>
 <body>
 
+<a class="back" href="/">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+  Voltar ao site
+</a>
+
 <header>
-  <div class="logo">Conselho Digital</div>
-  <h1>Demos para Clientes</h1>
-  <p class="sub">Exemplos de landing pages criadas para apresentar a novos clientes.</p>
+  <a class="logo-link" href="/">
+    <div class="logo">Conselho Digital</div>
+  </a>
+  <h1>Nossos Clientes</h1>
+  <p class="sub">Sites que desenvolvemos e publicamos para nossos clientes.</p>
 </header>
 
-<div class="grid" id="grid">
-  <!-- cards adicionados aqui -->
-</div>
-
-<div class="empty" id="empty" style="display:none">
-  <div class="empty-icon">🗂️</div>
-  Nenhuma demo cadastrada ainda.
-</div>
+<div class="grid" id="grid"></div>
 
 <script>
-const demos = [
-  { name: 'Diskaçambas', cat: 'Caçambas & Terraplanagem', city: 'Campinas e região', path: 'diskacambas/' },
+const clients = [
+  {
+    name: 'Evergreen Hidrossemeadura',
+    cat: 'Hidrossemeadura',
+    url: 'https://www.evergreenhidrossemeadura.com.br/',
+    image: '../meus/portfolio-evergreen-desktop.jpg'
+  },
+  {
+    name: 'Campcacambas',
+    cat: 'Caçambas',
+    url: 'https://campcacambas.com.br/',
+    image: '../meus/1782154894920-campcacambasweb.webp'
+  },
+  {
+    name: 'Moraes Caçambas',
+    cat: 'Caçambas',
+    url: 'https://moraescacambas.com.br/',
+    image: '../meus/1782160068778-moraescacambasweb.webp'
+  },
+  {
+    name: 'Águia Terraplenagem',
+    cat: 'Terraplenagem',
+    url: 'https://aguiaterraplenagem.com.br/',
+    image: '../meus/1786977378132-aguia.webp'
+  },
 ];
 
-const grid  = document.getElementById('grid');
-const empty = document.getElementById('empty');
+const grid = document.getElementById('grid');
 
-if (!demos.length) {
-  grid.style.display = 'none';
-  empty.style.display = '';
-} else {
-  demos.forEach(d => {
-    const a = document.createElement('a');
-    a.href = d.path;
-    a.className = 'card';
-    a.innerHTML = `
-      <div class="card-thumb">${d.thumb ? `<img src="${d.path}${d.thumb}" alt="${d.name}">` : '🌐'}</div>
-      <div class="card-body">
-        <div class="card-cat">${d.cat}</div>
-        <div class="card-name">${d.name}</div>
-        <div class="card-city">${d.city}</div>
-      </div>`;
-    grid.appendChild(a);
-  });
-}
+clients.forEach(c => {
+  const domain = new URL(c.url).hostname.replace('www.','');
+  const a = document.createElement('a');
+  a.href = c.url;
+  a.target = '_blank';
+  a.rel = 'noopener';
+  a.className = 'card';
+  a.innerHTML = `
+    <div class="card-thumb">
+      ${c.image
+        ? `<img src="${c.image}" alt="${c.name}" loading="lazy">`
+        : `<div class="card-thumb-ph">🌐</div>`}
+    </div>
+    <div class="card-body">
+      <div class="card-cat">${c.cat}</div>
+      <div class="card-name">${c.name}</div>
+      <div class="card-link">${domain}</div>
+      <div class="card-arrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 17L17 7M17 7H7M17 7v10"/>
+        </svg>
+      </div>
+    </div>`;
+  grid.appendChild(a);
+});
 </script>
 </body>
 </html>
