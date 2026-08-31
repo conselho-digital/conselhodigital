@@ -34,7 +34,7 @@ a { text-decoration: none; color: inherit; }
   position: absolute;
   inset: 0;
   background:
-    url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1800&q=85')
+    url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1800&q=85')
     center / cover no-repeat;
 }
 /* very light vignette – the original photo is already dark at dusk */
@@ -112,6 +112,50 @@ a { text-decoration: none; color: inherit; }
   margin: 0 auto;
 }
 
+/* ════════════════════════════════════════
+   VALUES STRIP  (overlaps hero)
+════════════════════════════════════════ */
+.values-strip {
+  position: relative;
+  z-index: 20;
+  background: #363636;
+  margin-top: -130px;
+  border-radius: 6px 6px 0 0;
+}
+.values-strip::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: #C99A3A;
+}
+.values-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 44px clamp(24px, 5vw, 64px) 52px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 56px;
+}
+.val-col h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+.val-col p {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255,255,255,.62);
+  line-height: 1.7;
+}
+
+@media(max-width: 768px) {
+  .values-inner { grid-template-columns: 1fr; gap: 32px; }
+  .values-strip { margin-top: 0; border-radius: 0; }
+}
+
 /* ── bottom-right chat bubble (visible in screenshot) ── */
 .bubble {
   position: absolute;
@@ -168,6 +212,24 @@ a { text-decoration: none; color: inherit; }
     </svg>
   </div>
 
+</section>
+
+<!-- ══ VALUES STRIP ══ -->
+<section class="values-strip">
+  <div class="values-inner">
+    <div class="val-col">
+      <h3>Os melhores imóveis</h3>
+      <p>Escolha entre apartamentos, casas, salas, ... Considere uma visita com um dos nossos corretores</p>
+    </div>
+    <div class="val-col">
+      <h3>Vamos acompanhar você</h3>
+      <p>Oferecemos a você a melhor consultoria na escolha do seu imóvel, desde a escolha da localização, tipo e características</p>
+    </div>
+    <div class="val-col">
+      <h3>Sempre a melhor condição</h3>
+      <p>Nossa equipe irá buscar a melhor condição de fechamento, inclusive oferecendo consultoria no financiamento</p>
+    </div>
+  </div>
 </section>
 
 <!-- more sections will be added here -->
