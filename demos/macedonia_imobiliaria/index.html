@@ -156,6 +156,58 @@ a { text-decoration: none; color: inherit; }
   .values-strip { margin-top: 0; border-radius: 0; }
 }
 
+/* ════════════════════════════════════════
+   ABOUT
+════════════════════════════════════════ */
+.about-section {
+  background: #C99A3A;
+  padding: 60px clamp(24px, 6vw, 100px);
+}
+.about-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+.about-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.about-text h2 {
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+.about-text p {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255,255,255,.88);
+  line-height: 1.75;
+  margin-bottom: 36px;
+}
+.btn-saiba {
+  display: inline-block;
+  padding: 14px 40px;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  transition: background .2s, color .2s;
+}
+.btn-saiba:hover { background: #fff; color: #C99A3A; }
+
+@media(max-width: 768px) {
+  .about-inner { grid-template-columns: 1fr; gap: 32px; }
+}
+
 /* ── bottom-right chat bubble (visible in screenshot) ── */
 .bubble {
   position: absolute;
@@ -228,6 +280,20 @@ a { text-decoration: none; color: inherit; }
     <div class="val-col">
       <h3>Sempre a melhor condição</h3>
       <p>Nossa equipe irá buscar a melhor condição de fechamento, inclusive oferecendo consultoria no financiamento</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABOUT ══ -->
+<section class="about-section">
+  <div class="about-inner">
+    <img class="about-photo"
+      src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80"
+      alt="Equipe Luxury Imóveis" loading="lazy">
+    <div class="about-text">
+      <h2>Sobre a Luxury Imóveis</h2>
+      <p>A Luxury Imóveis é uma empresa especializada na intermediação de compra, venda, locação e administração de imóveis residenciais e comerciais. Com uma equipe qualificada e comprometida, oferecemos atendimento personalizado, soluções inteligentes e total transparência em todas as etapas do processo imobiliário. Nossa missão é conectar pessoas aos lugares ideais para viver, investir ou empreender, com segurança jurídica, agilidade e excelência. Atuamos com foco no bem-estar de nossos clientes, valorizando cada detalhe para transformar sonhos em realidade.</p>
+      <a href="#" class="btn-saiba">Saiba mais</a>
     </div>
   </div>
 </section>
