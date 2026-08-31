@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Luxury Imóveis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap">
+<style>
+/* ── reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { overflow-x: hidden; scroll-behavior: smooth; }
+body { font-family: 'Montserrat', sans-serif; background: #fff; color: #424242; line-height: 1.6; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+
+/* ════════════════════════════════════════
+   HERO
+════════════════════════════════════════ */
+#hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* background photo */
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  background:
+    url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1800&q=85')
+    center / cover no-repeat;
+}
+/* very light vignette – the original photo is already dark at dusk */
+.hero-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.18);
+}
+
+/* ── nav ── */
+#nav {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 30;
+  padding: 26px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+.logo-icon { flex-shrink: 0; }
+.logo-wordmark { display: flex; flex-direction: column; gap: 0; }
+.logo-name {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  line-height: 1;
+}
+.logo-bold {
+  font-size: 21px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+}
+.logo-light {
+  font-size: 21px;
+  font-weight: 300;
+  color: #fff;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+}
+.logo-sub {
+  font-size: 8px;
+  font-weight: 400;
+  color: rgba(255,255,255,.52);
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+/* ── hero headline ── */
+.hero-body {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  width: 100%;
+  padding: 0 40px;
+  margin-top: -72px; /* shift slightly above true center, matching screenshot */
+}
+.hero-h1 {
+  font-size: clamp(26px, 2.8vw, 40px);
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.35;
+  letter-spacing: .2px;
+  text-wrap: balance;
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+/* ── bottom-right chat bubble (visible in screenshot) ── */
+.bubble {
+  position: absolute;
+  bottom: 28px; right: 28px;
+  z-index: 20;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--accent, #00c8c8);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 14px rgba(0,0,0,.25);
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section id="hero">
+
+  <div class="hero-photo"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="logo">
+      <!-- house icon – golden line art -->
+      <svg class="logo-icon" width="50" height="50" viewBox="0 0 52 52"
+           fill="none" stroke="#C99A3A" stroke-width="2.3"
+           stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="3,24 26,4 49,24"/>
+        <rect x="10" y="24" width="32" height="24" rx="1"/>
+        <rect x="19.5" y="36.5" width="13" height="11.5" rx="1"/>
+      </svg>
+      <div class="logo-wordmark">
+        <div class="logo-name">
+          <span class="logo-bold">Luxury</span>
+          <span class="logo-light">Imóveis</span>
+        </div>
+        <div class="logo-sub">Site de exemplo do imobzi.com</div>
+      </div>
+    </div>
+    <!-- right-side buttons omitted (painted pink = backend) -->
+  </nav>
+
+  <!-- HEADLINE -->
+  <div class="hero-body">
+    <h1 class="hero-h1">Especializado em imóveis residenciais e comerciais</h1>
+  </div>
+
+  <!-- chat/support bubble (bottom-right, visible in screenshot) -->
+  <div class="bubble">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+         stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    </svg>
+  </div>
+
+</section>
+
+<!-- more sections will be added here -->
+
+</body>
+</html>
