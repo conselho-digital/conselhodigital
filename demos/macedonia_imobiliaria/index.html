@@ -166,13 +166,14 @@ a { text-decoration: none; color: inherit; }
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 45% 1fr;
   gap: 72px;
   align-items: center;
 }
 .about-photo {
   width: 100%;
-  height: auto;
+  aspect-ratio: 16/9;
+  object-fit: cover;
   display: block;
 }
 .about-text h2 {
@@ -442,7 +443,7 @@ a { text-decoration: none; color: inherit; }
 <section class="about-section">
   <div class="about-inner">
     <img class="about-photo"
-      src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80"
+      src="https://storage.googleapis.com/imobzi/accounts/ac-cjlu24322gspd/public/banner.png"
       alt="Equipe Luxury Imóveis" loading="lazy">
     <div class="about-text">
       <h2>Sobre a Luxury Imóveis</h2>
