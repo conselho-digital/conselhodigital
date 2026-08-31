@@ -214,24 +214,24 @@ a { text-decoration: none; color: inherit; }
 .reels-section {
   background: #333;
   position: relative;
-  display: flex;
-  padding: 56px 0 56px 0;
+  padding: 56px 0;
   overflow: hidden;
 }
-/* golden left accent stripe */
+/* horizontal golden band — centered vertically over the cards */
 .reels-accent {
-  flex-shrink: 0;
-  width: 72px;
-  background: #C99A3A;
-  align-self: stretch;
   position: absolute;
-  left: 0; top: 0; bottom: 0;
+  top: 50%; left: 0;
+  transform: translateY(-50%);
+  width: 82%;
+  height: 260px;
+  background: #C99A3A;
+  border-radius: 0 14px 14px 0;
 }
 .reels-body {
   position: relative;
   z-index: 1;
   width: 100%;
-  padding: 0 40px 0 112px;
+  padding: 0 40px;
 }
 .reels-title {
   font-size: clamp(32px, 4vw, 52px);
