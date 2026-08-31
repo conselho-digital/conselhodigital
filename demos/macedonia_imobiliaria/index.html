@@ -6,293 +6,316 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Macedonia Imóveis | Lindoia – Venda, Locação e Administração</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap">
 <style>
-/* ─── TOKENS ─── */
 :root {
-  --teal:       #1F5F60;
-  --teal-dk:    #154244;
-  --teal-lt:    #2A7879;
-  --rose:       #B85C5C;
-  --rose-dk:    #943F3F;
-  --gold:       #C4A265;
-  --light:      #F7F5F2;
-  --cream:      #EFEBE4;
-  --dark:       #1A2332;
-  --text:       #374151;
-  --muted:      #6B7280;
-  --border:     #E5E0D8;
-  --white:      #FFFFFF;
-  --shadow-sm:  0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
-  --shadow-md:  0 4px 16px rgba(0,0,0,.1);
-  --shadow-lg:  0 16px 48px rgba(0,0,0,.14);
-  --radius:     8px;
-  --pad:        clamp(20px, 5vw, 80px);
+  --primary:    #1F5F60;
+  --primary-dk: #154244;
+  --primary-lt: #2A7879;
+  --secondary:  #3dbbed;
+  --title:      #424242;
+  --subtitle:   #8d8d8d;
+  --card:       #ffffff;
+  --bg:         #ffffff;
+  --bg-alt:     #f8f8f8;
+  --border:     #e8e8e8;
+  --footer-bg:  #424242;
+  --footer2-bg: #343434;
+  --shadow-sm:  0 2px 8px rgba(0,0,0,.08);
+  --shadow-md:  0 4px 20px rgba(0,0,0,.12);
+  --shadow-lg:  0 8px 40px rgba(0,0,0,.15);
+  --radius:     10px;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; overflow-x: hidden; }
-body { font-family: 'Montserrat', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
-img { max-width: 100%; display: block; }
+html { scroll-behavior: smooth; overflow-x: hidden; font-size: 14px; }
+body { font-family: 'Montserrat', sans-serif; color: var(--title); background: var(--bg); line-height: 1.6; }
+img { max-width: 100%; display: block; vertical-align: middle; }
 a { text-decoration: none; color: inherit; }
+h1,h2,h3,h4,h5,h6 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
 
 /* ─── NAV ─── */
 #nav {
-  position: sticky; top: 0; z-index: 100;
-  background: var(--white);
-  border-bottom: 1px solid var(--border);
-  box-shadow: var(--shadow-sm);
+  position: sticky; top: 0; z-index: 200;
+  background: var(--bg);
+  box-shadow: 0 1px 0 var(--border), 0 2px 8px rgba(0,0,0,.06);
 }
 .nav-inner {
   max-width: 1200px; margin: 0 auto;
-  padding: 0 var(--pad);
-  display: flex; align-items: center; gap: 32px;
-  height: 72px;
+  padding: 0 clamp(16px,4vw,48px);
+  display: flex; align-items: center; gap: 24px;
+  height: 70px;
 }
-.nav-logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-.nav-logo img { height: 52px; width: auto; object-fit: contain; }
-.nav-links { display: flex; gap: 28px; margin-left: auto; }
-.nav-links a { font-size: 13px; font-weight: 600; color: var(--text); letter-spacing: .4px; transition: color .15s; text-transform: uppercase; }
-.nav-links a:hover { color: var(--teal); }
-.nav-ctas { display: flex; gap: 10px; margin-left: 24px; }
-.btn { display: inline-flex; align-items: center; gap: 7px; padding: 10px 20px; border-radius: var(--radius); font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: .3px; cursor: pointer; border: none; transition: all .2s; }
-.btn-primary { background: var(--teal); color: #fff; }
-.btn-primary:hover { background: var(--teal-dk); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(31,95,96,.3); }
-.btn-outline { background: transparent; color: var(--teal); border: 2px solid var(--teal); }
-.btn-outline:hover { background: var(--teal); color: #fff; }
-.btn-wa { background: #25D366; color: #fff; }
-.btn-wa:hover { background: #128C7E; transform: translateY(-1px); }
-.nav-phone { font-size: 13px; font-weight: 600; color: var(--muted); white-space: nowrap; }
+.nav-logo { flex-shrink: 0; display: flex; align-items: center; }
+.nav-logo img { height: 50px; width: auto; object-fit: contain; }
+.nav-menu { display: flex; gap: 24px; margin-left: auto; }
+.nav-menu a { font-size: 13px; font-weight: 600; color: var(--title); letter-spacing: .3px; transition: color .15s; text-transform: uppercase; }
+.nav-menu a:hover { color: var(--primary); }
+.nav-contact { display: flex; align-items: center; gap: 12px; margin-left: 20px; }
+.nav-phone { font-size: 13px; font-weight: 600; color: var(--subtitle); white-space: nowrap; }
+.btn-nav {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 9px 18px; border-radius: var(--radius);
+  font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700;
+  letter-spacing: .5px; text-transform: uppercase; cursor: pointer; border: none;
+  background: var(--primary); color: #fff; transition: all .2s;
+}
+.btn-nav:hover { background: var(--primary-dk); }
+.btn-wa-nav {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 9px 16px; border-radius: var(--radius);
+  background: #25D366; color: #fff;
+  font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700;
+  letter-spacing: .3px; text-transform: uppercase; cursor: pointer; border: none; transition: all .2s;
+}
+.btn-wa-nav:hover { background: #1EB058; }
 
 /* ─── HERO ─── */
 #hero {
-  position: relative; min-height: 88vh;
-  display: flex; align-items: center;
+  position: relative; min-height: 90vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
   overflow: hidden;
 }
 .hero-bg {
   position: absolute; inset: 0;
-  background: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600&q=80') center/cover no-repeat;
+  background: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1800&q=85') center/cover no-repeat;
 }
-.hero-bg::after {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(120deg, rgba(26,35,50,.82) 0%, rgba(31,95,96,.55) 60%, rgba(26,35,50,.3) 100%);
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, rgba(31,95,96,.88) 0%, rgba(21,66,68,.72) 60%, rgba(0,0,0,.55) 100%);
 }
 .hero-content {
   position: relative; z-index: 1;
-  max-width: 1200px; margin: 0 auto;
-  padding: 80px var(--pad) 60px;
-  width: 100%;
+  width: 100%; max-width: 1200px;
+  padding: 80px clamp(16px,4vw,48px) 0;
+  text-align: center;
 }
-.hero-tag {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(196,162,101,.18); border: 1px solid rgba(196,162,101,.4);
-  border-radius: 999px; padding: 6px 16px;
-  font-size: 11px; font-weight: 700; color: var(--gold);
-  letter-spacing: 1.5px; text-transform: uppercase;
-  margin-bottom: 24px;
+.hero-label {
+  display: inline-block;
+  font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+  color: rgba(255,255,255,.75); margin-bottom: 20px;
 }
 .hero-title {
-  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-size: clamp(1.8rem, 4.5vw, 3.2rem);
   font-weight: 800; color: #fff;
-  line-height: 1.12; letter-spacing: -.5px;
-  max-width: 680px; margin-bottom: 20px;
+  line-height: 1.15; letter-spacing: -.5px;
+  max-width: 800px; margin: 0 auto 40px;
 }
-.hero-title em { font-style: normal; color: var(--gold); }
-.hero-sub {
-  font-size: clamp(15px, 2vw, 17px); color: rgba(255,255,255,.75);
-  max-width: 520px; margin-bottom: 40px; font-weight: 400;
+/* Hero search tabs */
+.hero-search-wrap {
+  position: relative; z-index: 1;
+  width: 100%; max-width: 1200px;
+  padding: 0 clamp(16px,4vw,48px);
+  margin-top: 0;
 }
-.hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 56px; }
-.hero-stats {
-  display: flex; gap: 40px; flex-wrap: wrap;
-  border-top: 1px solid rgba(255,255,255,.15);
-  padding-top: 32px;
+.search-tabs {
+  display: inline-flex; border-radius: 6px 6px 0 0; overflow: hidden;
 }
-.stat-item { color: rgba(255,255,255,.9); }
-.stat-num { font-size: 2rem; font-weight: 800; color: var(--gold); line-height: 1; }
-.stat-label { font-size: 12px; color: rgba(255,255,255,.6); margin-top: 4px; font-weight: 500; text-transform: uppercase; letter-spacing: .6px; }
-
-/* ─── SEARCH BAR ─── */
-.search-bar-wrap {
-  max-width: 1200px; margin: -36px auto 0;
-  padding: 0 var(--pad);
-  position: relative; z-index: 10;
+.search-tab {
+  padding: 12px 28px; font-size: 13px; font-weight: 700;
+  letter-spacing: .5px; text-transform: uppercase; cursor: pointer; border: none;
+  background: rgba(255,255,255,.15); color: rgba(255,255,255,.7);
+  transition: all .15s;
 }
-.search-bar {
-  background: var(--white);
-  border-radius: 12px;
+.search-tab.active { background: var(--bg); color: var(--primary); }
+.search-tab:hover:not(.active) { background: rgba(255,255,255,.25); color: #fff; }
+.search-form {
+  background: var(--bg); border-radius: 0 var(--radius) var(--radius) var(--radius);
   box-shadow: var(--shadow-lg);
   padding: 24px 28px;
   display: flex; gap: 16px; align-items: flex-end; flex-wrap: wrap;
-  border: 1px solid var(--border);
 }
-.search-field { flex: 1; min-width: 140px; }
-.search-field label { display: block; font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .8px; margin-bottom: 6px; }
-.search-field select,
-.search-field input {
+.sf-field { flex: 1; min-width: 150px; }
+.sf-field label { display: block; font-size: 10px; font-weight: 700; color: var(--subtitle); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.sf-field select,
+.sf-field input {
   width: 100%; border: 1px solid var(--border); border-radius: 6px;
-  padding: 10px 12px; font-family: 'Montserrat', sans-serif;
-  font-size: 14px; color: var(--text); background: var(--light);
-  outline: none; appearance: none;
+  padding: 11px 12px; font-family: 'Montserrat', sans-serif;
+  font-size: 13px; color: var(--title); background: var(--bg-alt);
+  outline: none; appearance: none; -webkit-appearance: none;
+  transition: border-color .15s;
 }
-.search-field select:focus,
-.search-field input:focus { border-color: var(--teal); }
-.search-btn { flex-shrink: 0; padding: 12px 28px; font-size: 14px; border-radius: 8px; }
+.sf-field select:focus,
+.sf-field input:focus { border-color: var(--primary); background: #fff; }
+.btn-search {
+  flex-shrink: 0; display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 28px; border-radius: var(--radius); border: none;
+  background: var(--primary); color: #fff;
+  font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700;
+  letter-spacing: .5px; text-transform: uppercase; cursor: pointer;
+  transition: background .2s;
+}
+.btn-search:hover { background: var(--primary-dk); }
+.hero-bottom {
+  position: relative; z-index: 1; background: var(--bg);
+  padding: 48px clamp(16px,4vw,48px) 0;
+}
 
 /* ─── SECTION ─── */
-.section { padding: clamp(60px, 8vw, 100px) var(--pad); max-width: 1200px; margin: 0 auto; }
-.section-full { padding: clamp(60px, 8vw, 100px) 0; background: var(--light); }
-.section-full .section { padding-top: 0; padding-bottom: 0; }
-.s-label { font-size: 11px; font-weight: 700; color: var(--teal); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
-.s-title { font-size: clamp(1.5rem, 3.5vw, 2.4rem); font-weight: 800; color: var(--dark); line-height: 1.2; margin-bottom: 14px; letter-spacing: -.3px; }
-.s-sub { font-size: 15px; color: var(--muted); max-width: 540px; line-height: 1.7; }
-.s-header { margin-bottom: 40px; }
-.s-header-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 40px; flex-wrap: wrap; }
+.section-wrap { padding: clamp(56px,8vw,96px) clamp(16px,4vw,48px); }
+.section-wrap.alt { background: var(--bg-alt); }
+.section-wrap.dark { background: var(--footer-bg); }
+.inner { max-width: 1200px; margin: 0 auto; }
+.sec-label { font-size: 11px; font-weight: 700; color: var(--primary); letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 10px; }
+.sec-title { font-size: clamp(1.4rem, 3vw, 2.2rem); font-weight: 800; color: var(--title); line-height: 1.25; margin-bottom: 12px; letter-spacing: -.3px; }
+.sec-sub { font-size: 14px; color: var(--subtitle); line-height: 1.7; max-width: 540px; }
+.sec-head { margin-bottom: 40px; }
+.sec-head-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; }
 
-/* ─── FILTERS ─── */
-.filter-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
-.filter-tab { padding: 8px 20px; border-radius: 999px; font-size: 13px; font-weight: 600; border: 1px solid var(--border); background: var(--white); cursor: pointer; transition: all .15s; }
-.filter-tab.active, .filter-tab:hover { background: var(--teal); color: #fff; border-color: var(--teal); }
+/* ─── SERVICES (value props) ─── */
+.val-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+.val-card {
+  padding: 36px 32px; background: var(--card); text-align: center;
+  border-right: 1px solid var(--border); transition: background .2s;
+}
+.val-card:last-child { border-right: none; }
+.val-card:hover { background: var(--bg-alt); }
+.val-icon {
+  width: 68px; height: 68px; border-radius: 50%; margin: 0 auto 20px;
+  background: linear-gradient(135deg, var(--primary-lt), var(--primary-dk));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px;
+}
+.val-title { font-size: 16px; font-weight: 800; color: var(--title); margin-bottom: 10px; }
+.val-desc { font-size: 13px; color: var(--subtitle); line-height: 1.7; }
 
-/* ─── PROPERTY CARDS ─── */
-.prop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
-.prop-card {
-  background: var(--white); border-radius: 12px;
-  border: 1px solid var(--border);
-  overflow: hidden; transition: all .25s;
-  box-shadow: var(--shadow-sm);
+/* ─── BANNER ─── */
+.banner-img {
+  width: 100%; height: clamp(200px, 30vw, 400px);
+  object-fit: cover; display: block;
 }
-.prop-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--teal-lt); }
-.prop-thumb {
-  width: 100%; aspect-ratio: 4/3; overflow: hidden;
-  position: relative; background: var(--cream);
-}
-.prop-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
-.prop-card:hover .prop-thumb img { transform: scale(1.06); }
-.prop-badge {
-  position: absolute; top: 12px; left: 12px;
-  background: var(--teal); color: #fff;
-  font-size: 10px; font-weight: 700; letter-spacing: .8px;
-  text-transform: uppercase; padding: 4px 10px; border-radius: 4px;
-}
-.prop-badge.rent { background: var(--rose); }
-.prop-fav {
-  position: absolute; top: 12px; right: 12px;
-  width: 32px; height: 32px; border-radius: 50%;
-  background: rgba(255,255,255,.9); display: flex; align-items: center; justify-content: center;
-  font-size: 15px; cursor: pointer;
-}
-.prop-body { padding: 18px 20px; }
-.prop-type { font-size: 11px; font-weight: 700; color: var(--teal); text-transform: uppercase; letter-spacing: .8px; margin-bottom: 4px; }
-.prop-name { font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 4px; line-height: 1.3; }
-.prop-loc { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 4px; margin-bottom: 12px; }
-.prop-details { display: flex; gap: 14px; margin-bottom: 14px; flex-wrap: wrap; }
-.prop-detail { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--muted); font-weight: 500; }
-.prop-price { font-size: 20px; font-weight: 800; color: var(--dark); border-top: 1px solid var(--border); padding-top: 12px; }
-.prop-price small { font-size: 12px; color: var(--muted); font-weight: 500; display: block; }
 
 /* ─── ABOUT ─── */
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-.about-img { border-radius: 16px; overflow: hidden; position: relative; }
-.about-img img { width: 100%; height: 480px; object-fit: cover; }
-.about-img::before {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(135deg, var(--teal) 0%, transparent 60%);
-  opacity: .15; z-index: 1; border-radius: 16px;
-}
+.about-img-wrap { position: relative; border-radius: var(--radius); overflow: hidden; }
+.about-img-wrap img { width: 100%; height: 460px; object-fit: cover; }
 .about-badge {
-  position: absolute; bottom: 24px; left: 24px; z-index: 2;
-  background: var(--white); border-radius: 10px;
+  position: absolute; bottom: 20px; left: 20px;
+  background: var(--card); border-radius: var(--radius);
   padding: 14px 18px; box-shadow: var(--shadow-md);
   display: flex; align-items: center; gap: 12px;
 }
-.about-badge-icon { font-size: 28px; }
-.about-badge-text strong { display: block; font-size: 18px; font-weight: 800; color: var(--dark); }
-.about-badge-text span { font-size: 11px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .6px; }
-.about-content { padding: 20px 0; }
-.about-content .s-sub { max-width: 100%; margin-bottom: 24px; }
-.about-list { list-style: none; margin-bottom: 32px; display: flex; flex-direction: column; gap: 10px; }
-.about-list li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text); font-weight: 500; }
-.about-list li::before { content: '✓'; display: flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; background: var(--teal); color: #fff; font-size: 12px; font-weight: 700; flex-shrink: 0; }
-
-/* ─── SERVICES ─── */
-.srv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.srv-card {
-  background: var(--white); border: 1px solid var(--border);
-  border-radius: 12px; padding: 32px 28px;
-  text-align: center; transition: all .25s;
+.about-badge-icon { font-size: 30px; }
+.about-badge strong { display: block; font-size: 20px; font-weight: 800; color: var(--title); }
+.about-badge span { font-size: 11px; color: var(--subtitle); font-weight: 600; text-transform: uppercase; letter-spacing: .6px; }
+.about-text { }
+.about-list { list-style: none; margin: 20px 0 32px; display: flex; flex-direction: column; gap: 10px; }
+.about-list li { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--title); font-weight: 500; }
+.about-list li::before {
+  content: '';
+  display: flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--primary); flex-shrink: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: center; background-size: 12px;
 }
-.srv-card:hover { border-color: var(--teal); box-shadow: var(--shadow-md); transform: translateY(-3px); }
-.srv-icon {
-  width: 64px; height: 64px; border-radius: 16px; margin: 0 auto 20px;
-  background: linear-gradient(135deg, var(--teal-lt), var(--teal-dk));
-  display: flex; align-items: center; justify-content: center; font-size: 28px;
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 26px; border-radius: var(--radius); border: none;
+  background: var(--primary); color: #fff;
+  font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700;
+  letter-spacing: .5px; text-transform: uppercase; cursor: pointer; transition: all .2s;
 }
-.srv-title { font-size: 17px; font-weight: 800; color: var(--dark); margin-bottom: 10px; }
-.srv-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
+.btn-primary:hover { background: var(--primary-dk); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(31,95,96,.3); }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 22px; border-radius: var(--radius);
+  background: transparent; color: var(--primary); border: 2px solid var(--primary);
+  font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700;
+  letter-spacing: .5px; text-transform: uppercase; cursor: pointer; transition: all .2s;
+}
+.btn-outline:hover { background: var(--primary); color: #fff; }
 
-/* ─── NEIGHBORHOODS ─── */
+/* ─── PROPERTY CARDS ─── */
+.prop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+.prop-card {
+  background: var(--card); border-radius: var(--radius);
+  box-shadow: var(--shadow-sm); border: 1px solid var(--border);
+  overflow: hidden; transition: all .25s; cursor: pointer;
+}
+.prop-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--primary); }
+.prop-thumb { width: 100%; aspect-ratio: 4/3; overflow: hidden; position: relative; }
+.prop-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+.prop-card:hover .prop-thumb img { transform: scale(1.05); }
+.prop-badge {
+  position: absolute; top: 14px; left: 14px;
+  background: var(--primary); color: #fff;
+  font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  padding: 5px 10px; border-radius: 4px;
+}
+.prop-badge.rent { background: #d97706; }
+.prop-badge.temp { background: var(--primary-lt); }
+.prop-fav {
+  position: absolute; top: 12px; right: 12px;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: rgba(255,255,255,.92); display: flex; align-items: center; justify-content: center;
+  font-size: 16px; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,.15);
+}
+.prop-body { padding: 18px 20px; }
+.prop-city { font-size: 10px; font-weight: 700; color: var(--subtitle); text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 2px; }
+.prop-name { font-size: 15px; font-weight: 800; color: var(--title); margin-bottom: 4px; line-height: 1.3; }
+.prop-type { font-size: 12px; color: var(--subtitle); margin-bottom: 12px; }
+.prop-details { display: flex; gap: 12px; flex-wrap: wrap; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--border); }
+.prop-det { font-size: 12px; color: var(--subtitle); font-weight: 500; }
+.prop-price { font-size: 20px; font-weight: 800; color: var(--title); }
+.prop-price small { font-size: 11px; color: var(--subtitle); font-weight: 500; display: block; margin-top: 2px; }
+
+/* ─── NEIGHBORHOOD ─── */
 .nbr-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
 .nbr-card {
-  border-radius: 12px; overflow: hidden;
+  border-radius: var(--radius); overflow: hidden;
   position: relative; aspect-ratio: 4/3; cursor: pointer;
 }
 .nbr-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
 .nbr-card:hover img { transform: scale(1.08); }
 .nbr-card::after {
   content: ''; position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(26,35,50,.75) 0%, transparent 55%);
+  background: linear-gradient(to top, rgba(0,0,0,.72) 0%, transparent 55%);
 }
 .nbr-info { position: absolute; bottom: 0; left: 0; right: 0; z-index: 1; padding: 16px; }
 .nbr-name { font-size: 15px; font-weight: 800; color: #fff; }
 .nbr-count { font-size: 11px; color: rgba(255,255,255,.7); font-weight: 600; margin-top: 2px; }
 
 /* ─── CTA BANNER ─── */
-.cta-banner {
-  background: linear-gradient(120deg, var(--teal-dk) 0%, var(--teal) 50%, var(--teal-lt) 100%);
-  padding: clamp(48px, 7vw, 80px) var(--pad);
+.cta-section {
+  padding: clamp(48px,7vw,80px) clamp(16px,4vw,48px);
+  background: linear-gradient(120deg, var(--primary-dk) 0%, var(--primary) 60%, var(--primary-lt) 100%);
   text-align: center;
 }
-.cta-banner h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: #fff; margin-bottom: 10px; }
-.cta-banner p { color: rgba(255,255,255,.75); font-size: 16px; margin-bottom: 32px; }
+.cta-section h2 { font-size: clamp(1.4rem, 2.8vw, 2rem); font-weight: 800; color: #fff; margin-bottom: 10px; }
+.cta-section p { font-size: 15px; color: rgba(255,255,255,.75); margin-bottom: 32px; }
 .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-.btn-white { background: #fff; color: var(--teal); font-size: 14px; padding: 14px 28px; }
-.btn-white:hover { background: var(--cream); }
-.btn-wa-lg { background: #25D366; color: #fff; font-size: 14px; padding: 14px 28px; }
+.btn-white { background: #fff; color: var(--primary); display: inline-flex; align-items: center; gap: 8px; padding: 14px 26px; border-radius: var(--radius); font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; cursor: pointer; border: none; transition: all .2s; }
+.btn-white:hover { background: #f0f0f0; }
+.btn-wa-lg { background: #25D366; color: #fff; display: inline-flex; align-items: center; gap: 8px; padding: 14px 26px; border-radius: var(--radius); font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; cursor: pointer; border: none; transition: all .2s; }
 .btn-wa-lg:hover { background: #1EB058; transform: translateY(-1px); }
 
 /* ─── FOOTER ─── */
-footer {
-  background: var(--dark);
-  padding: clamp(48px, 7vw, 72px) var(--pad) 0;
-  color: rgba(255,255,255,.7);
-}
-.footer-inner {
-  max-width: 1200px; margin: 0 auto;
-  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
-  padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,.08);
-}
-.footer-logo img { height: 56px; width: auto; margin-bottom: 16px; filter: brightness(1.1); }
-.footer-desc { font-size: 13px; line-height: 1.7; max-width: 280px; margin-bottom: 20px; }
-.footer-contact { display: flex; flex-direction: column; gap: 8px; }
-.footer-contact a { font-size: 13px; color: rgba(255,255,255,.6); display: flex; align-items: center; gap: 8px; transition: color .15s; }
-.footer-contact a:hover { color: var(--gold); }
-.footer-col h4 { font-size: 12px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+footer { background: var(--footer-bg); }
+.footer-main { max-width: 1200px; margin: 0 auto; padding: clamp(40px,6vw,64px) clamp(16px,4vw,48px); display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+.footer-logo img { height: 52px; width: auto; margin-bottom: 16px; filter: brightness(0) invert(1); opacity: .85; }
+.footer-desc { font-size: 13px; color: rgba(255,255,255,.6); line-height: 1.7; max-width: 260px; margin-bottom: 18px; }
+.footer-links-block { display: flex; flex-direction: column; gap: 8px; }
+.footer-links-block a { font-size: 13px; color: rgba(255,255,255,.55); display: flex; align-items: center; gap: 6px; transition: color .15s; }
+.footer-links-block a:hover { color: rgba(255,255,255,.9); }
+.footer-col h4 { font-size: 11px; font-weight: 700; color: rgba(255,255,255,.9); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; }
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-.footer-col ul li a { font-size: 13px; color: rgba(255,255,255,.55); transition: color .15s; }
-.footer-col ul li a:hover { color: var(--gold); }
+.footer-col ul a { font-size: 13px; color: rgba(255,255,255,.55); transition: color .15s; }
+.footer-col ul a:hover { color: rgba(255,255,255,.9); }
 .footer-bottom {
+  background: var(--footer2-bg);
+  padding: 16px clamp(16px,4vw,48px);
+}
+.footer-bottom-inner {
   max-width: 1200px; margin: 0 auto;
-  padding: 20px 0;
-  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
   font-size: 12px; color: rgba(255,255,255,.35);
 }
-.footer-bottom a { color: rgba(255,255,255,.5); }
-.footer-bottom a:hover { color: var(--gold); }
+.footer-bottom-inner a { color: rgba(255,255,255,.5); }
+.footer-bottom-inner a:hover { color: rgba(255,255,255,.8); }
 
 /* ─── WA FLOAT ─── */
 #wa-float {
-  position: fixed; bottom: 28px; right: 28px; z-index: 200;
+  position: fixed; bottom: 28px; right: 28px; z-index: 300;
   width: 60px; height: 60px; border-radius: 50%;
   background: #25D366; color: #fff;
   display: flex; align-items: center; justify-content: center;
@@ -300,163 +323,196 @@ footer {
   animation: pulse-wa 2.5s ease-in-out infinite;
   transition: transform .15s;
 }
-#wa-float:hover { transform: scale(1.1); animation: none; box-shadow: 0 6px 24px rgba(37,211,102,.6); }
+#wa-float:hover { transform: scale(1.1); animation: none; }
 @keyframes pulse-wa {
   0%,100% { box-shadow: 0 4px 16px rgba(37,211,102,.5), 0 0 0 0 rgba(37,211,102,.35); }
   50%      { box-shadow: 0 4px 16px rgba(37,211,102,.5), 0 0 0 14px rgba(37,211,102,0); }
 }
 
 /* ─── RESPONSIVE ─── */
-@media(max-width:1024px) {
+@media(max-width:1024px){
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
-  .about-img { max-height: 360px; }
-  .about-img img { height: 360px; }
-  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .about-img-wrap img { height: 340px; }
+  .footer-main { grid-template-columns: 1fr 1fr; }
+  .val-grid { grid-template-columns: 1fr; border-radius: var(--radius); }
+  .val-card { border-right: none; border-bottom: 1px solid var(--border); }
+  .val-card:last-child { border-bottom: none; }
 }
-@media(max-width:768px) {
-  .nav-links { display: none; }
+@media(max-width:768px){
+  .nav-menu { display: none; }
   .nav-phone { display: none; }
-  .srv-grid { grid-template-columns: 1fr; }
   .prop-grid { grid-template-columns: 1fr; }
-  .search-bar { flex-direction: column; }
-  .footer-inner { grid-template-columns: 1fr; gap: 32px; }
-  .hero-ctas .btn { flex: 1; justify-content: center; }
-}
-@media(max-width:480px) {
-  .hero-stats { gap: 24px; }
+  .search-form { flex-direction: column; }
+  .footer-main { grid-template-columns: 1fr; gap: 28px; }
+  .hero-title { font-size: clamp(1.5rem,6vw,2.2rem); }
   .nbr-grid { grid-template-columns: 1fr 1fr; }
+}
+@media(max-width:480px){
+  .nbr-grid { grid-template-columns: 1fr 1fr; }
+  .cta-btns { flex-direction: column; }
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="nav">
+<!-- ══ NAV ══ -->
+<header id="nav">
   <div class="nav-inner">
-    <a class="nav-logo" href="#">
+    <a class="nav-logo" href="#" aria-label="Macedonia Imóveis">
       <img src="logo (3).jpg" alt="Macedonia Imóveis">
     </a>
-    <nav class="nav-links">
+    <nav class="nav-menu">
       <a href="#imoveis">Imóveis</a>
       <a href="#sobre">Sobre</a>
       <a href="#servicos">Serviços</a>
       <a href="#bairros">Bairros</a>
       <a href="#contato">Contato</a>
     </nav>
-    <span class="nav-phone">(19) 3909-1988</span>
-    <div class="nav-ctas">
-      <a href="https://wa.me/5519996673596" class="btn btn-wa" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <div class="nav-contact">
+      <span class="nav-phone">(19) 3909-1988</span>
+      <a href="https://wa.me/5519996673596" class="btn-wa-nav" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         WhatsApp
       </a>
     </div>
   </div>
-</nav>
+</header>
 
-<!-- HERO -->
+<!-- ══ HERO ══ -->
 <section id="hero">
   <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-tag">
-      <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="5"/></svg>
-      Lindoia · SP
-    </div>
+    <div class="hero-label">Lindoia · SP · Imobiliária</div>
     <h1 class="hero-title">
-      Vendemos, Alugamos e<br>
-      <em>Administramos</em> seu imóvel<br>
-      da melhor forma para você
+      Vendemos, Alugamos e Administramos<br>
+      seu imóvel da melhor forma para você
     </h1>
-    <p class="hero-sub">Encontre a casa dos seus sonhos ou invista com segurança. A Macedonia Imóveis é sua parceira em cada etapa.</p>
-    <div class="hero-ctas">
-      <a href="#imoveis" class="btn btn-primary" style="padding:14px 28px;font-size:15px">
-        Ver Imóveis
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a href="https://wa.me/5519996673596" class="btn btn-wa" style="padding:14px 28px;font-size:15px" target="_blank" rel="noopener">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Falar no WhatsApp
-      </a>
+  </div>
+  <div class="hero-search-wrap">
+    <div class="search-tabs">
+      <button class="search-tab active" onclick="setTab(this)">Comprar</button>
+      <button class="search-tab" onclick="setTab(this)">Alugar</button>
+      <button class="search-tab" onclick="setTab(this)">Temporada</button>
     </div>
-    <div class="hero-stats">
-      <div class="stat-item">
-        <div class="stat-num">150+</div>
-        <div class="stat-label">Imóveis Vendidos</div>
+    <div class="search-form">
+      <div class="sf-field">
+        <label>Tipo de imóvel</label>
+        <select>
+          <option>Todos os tipos</option>
+          <option>Apartamento</option>
+          <option>Casa</option>
+          <option>Chácara</option>
+          <option>Terreno</option>
+          <option>Comercial</option>
+        </select>
       </div>
-      <div class="stat-item">
-        <div class="stat-num">10+</div>
-        <div class="stat-label">Anos de Experiência</div>
+      <div class="sf-field">
+        <label>Localização</label>
+        <input type="text" placeholder="Bairro ou cidade...">
       </div>
-      <div class="stat-item">
-        <div class="stat-num">98%</div>
-        <div class="stat-label">Clientes Satisfeitos</div>
+      <div class="sf-field" style="max-width:130px">
+        <label>Dormitórios</label>
+        <select>
+          <option>Qualquer</option>
+          <option>1+</option>
+          <option>2+</option>
+          <option>3+</option>
+          <option>4+</option>
+        </select>
       </div>
-      <div class="stat-item">
-        <div class="stat-num">Lindoia</div>
-        <div class="stat-label">Nossa cidade</div>
-      </div>
+      <a href="https://wa.me/5519996673596" class="btn-search" target="_blank">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        Buscar
+      </a>
     </div>
   </div>
+  <div class="hero-bottom"></div>
 </section>
 
-<!-- SEARCH BAR -->
-<div class="search-bar-wrap">
-  <div class="search-bar">
-    <div class="search-field">
-      <label>O que deseja?</label>
-      <select>
-        <option>Comprar</option>
-        <option>Alugar</option>
-        <option>Temporada</option>
-      </select>
+<!-- ══ VALUE PROPS ══ -->
+<div class="section-wrap" id="servicos">
+  <div class="inner">
+    <div class="sec-head" style="text-align:center">
+      <div class="sec-label" style="display:flex;justify-content:center">O que oferecemos</div>
+      <h2 class="sec-title" style="margin:0 auto 12px">Soluções completas para o seu imóvel</h2>
+      <p class="sec-sub" style="margin:0 auto">Desde a busca ao contrato, cuidamos de cada detalhe para você.</p>
     </div>
-    <div class="search-field">
-      <label>Tipo de imóvel</label>
-      <select>
-        <option>Todos os tipos</option>
-        <option>Apartamento</option>
-        <option>Casa</option>
-        <option>Chácara</option>
-        <option>Terreno</option>
-        <option>Comercial</option>
-      </select>
+    <div class="val-grid">
+      <div class="val-card">
+        <div class="val-icon">🏠</div>
+        <div class="val-title">Compra e Venda</div>
+        <p class="val-desc">Avaliamos seu imóvel gratuitamente e encontramos o comprador ideal. Assessoria jurídica completa do início ao fim.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-icon">🔑</div>
+        <div class="val-title">Locação</div>
+        <p class="val-desc">Inquilinos qualificados com análise de crédito rigorosa. Contratos seguros e garantia de aluguel para o proprietário.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-icon">📋</div>
+        <div class="val-title">Administração</div>
+        <p class="val-desc">Relatórios mensais, cobrança de aluguéis, vistoria periódica e resolução de pendências com total transparência.</p>
+      </div>
     </div>
-    <div class="search-field">
-      <label>Localização</label>
-      <input type="text" placeholder="Bairro ou região...">
-    </div>
-    <div class="search-field" style="max-width:140px">
-      <label>Dormitórios</label>
-      <select>
-        <option>Qualquer</option>
-        <option>1+</option>
-        <option>2+</option>
-        <option>3+</option>
-        <option>4+</option>
-      </select>
-    </div>
-    <a href="https://wa.me/5519996673596" class="btn btn-primary search-btn" target="_blank">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      Buscar
-    </a>
   </div>
 </div>
 
-<!-- PROPERTIES -->
-<section id="imoveis" style="padding-top:72px">
-  <div class="section" style="padding-top:0">
-    <div class="s-header-row">
-      <div>
-        <div class="s-label">Imóveis em destaque</div>
-        <h2 class="s-title">Encontre seu imóvel ideal<br>em Lindoia</h2>
+<!-- ══ BANNER ══ -->
+<img
+  class="banner-img"
+  src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=1600&q=80"
+  alt="Macedonia Imóveis — nossa equipe"
+  loading="lazy"
+>
+
+<!-- ══ ABOUT ══ -->
+<div class="section-wrap alt" id="sobre">
+  <div class="inner">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80" alt="Imóvel em Lindoia" loading="lazy">
+        <div class="about-badge">
+          <span class="about-badge-icon">🏆</span>
+          <div>
+            <strong>10+ Anos</strong>
+            <span>em Lindoia</span>
+          </div>
+        </div>
       </div>
-      <a href="https://wa.me/5519996673596" class="btn btn-outline" target="_blank">Ver todos →</a>
+      <div class="about-text">
+        <div class="sec-label">Sobre a Macedonia Imóveis</div>
+        <h2 class="sec-title">Sua parceira de confiança<br>em Lindoia</h2>
+        <p class="sec-sub" style="max-width:100%;margin-bottom:0">
+          A Macedonia Imóveis é especializada na intermediação de compra, venda, locação e administração de imóveis residenciais e comerciais em Lindoia e região. Com equipe local, atendimento personalizado e total transparência, conectamos você ao imóvel certo.
+        </p>
+        <ul class="about-list">
+          <li>Mais de 150 imóveis vendidos e administrados</li>
+          <li>Equipe local com profundo conhecimento de Lindoia</li>
+          <li>Avaliação gratuita do seu imóvel</li>
+          <li>Consultoria completa de financiamento</li>
+          <li>Administração de aluguéis com total segurança</li>
+        </ul>
+        <a href="https://wa.me/5519996673596?text=Olá! Quero saber mais sobre a Macedonia Imóveis." class="btn-primary" target="_blank">
+          Falar com um corretor
+        </a>
+      </div>
     </div>
-    <div class="filter-tabs">
-      <button class="filter-tab active">Todos</button>
-      <button class="filter-tab">Para Comprar</button>
-      <button class="filter-tab">Para Alugar</button>
-      <button class="filter-tab">Temporada</button>
+  </div>
+</div>
+
+<!-- ══ PROPERTIES ══ -->
+<div class="section-wrap" id="imoveis">
+  <div class="inner">
+    <div class="sec-head-row">
+      <div>
+        <div class="sec-label">Imóveis em destaque</div>
+        <h2 class="sec-title" style="margin-bottom:0">Os melhores imóveis em Lindoia</h2>
+        <p class="sec-sub">Escolha entre casas, apartamentos, chácaras e muito mais. Considere uma visita com um de nossos corretores.</p>
+      </div>
+      <a href="https://wa.me/5519996673596" class="btn-outline" target="_blank">Ver todos →</a>
     </div>
+
     <div class="prop-grid">
       <!-- Card 1 -->
       <div class="prop-card">
@@ -466,17 +522,13 @@ footer {
           <span class="prop-fav">♡</span>
         </div>
         <div class="prop-body">
-          <div class="prop-type">Casa Residencial</div>
+          <div class="prop-city">Centro · Lindoia – SP</div>
           <div class="prop-name">Casa com piscina e área gourmet</div>
-          <div class="prop-loc">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Centro, Lindoia – SP
-          </div>
+          <div class="prop-type">Casa Residencial · 180 m²</div>
           <div class="prop-details">
-            <span class="prop-detail">🛏 3 dorms</span>
-            <span class="prop-detail">🚿 2 banheiros</span>
-            <span class="prop-detail">🚗 2 vagas</span>
-            <span class="prop-detail">📐 180 m²</span>
+            <span class="prop-det">🛏 3 dorms</span>
+            <span class="prop-det">🚿 2 banheiros</span>
+            <span class="prop-det">🚗 2 vagas</span>
           </div>
           <div class="prop-price">
             R$ 850.000
@@ -492,20 +544,16 @@ footer {
           <span class="prop-fav">♡</span>
         </div>
         <div class="prop-body">
-          <div class="prop-type">Apartamento</div>
+          <div class="prop-city">Jardim do Lago · Lindoia – SP</div>
           <div class="prop-name">Apartamento mobiliado, alto padrão</div>
-          <div class="prop-loc">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Jardim do Lago, Lindoia – SP
-          </div>
+          <div class="prop-type">Apartamento · 75 m²</div>
           <div class="prop-details">
-            <span class="prop-detail">🛏 2 dorms</span>
-            <span class="prop-detail">🚿 1 banheiro</span>
-            <span class="prop-detail">🚗 1 vaga</span>
-            <span class="prop-detail">📐 75 m²</span>
+            <span class="prop-det">🛏 2 dorms</span>
+            <span class="prop-det">🚿 1 banheiro</span>
+            <span class="prop-det">🚗 1 vaga</span>
           </div>
           <div class="prop-price">
-            R$ 2.200 <span style="font-size:13px;font-weight:500;color:var(--muted)">/mês</span>
+            R$ 2.200 <span style="font-size:12px;font-weight:500;color:var(--subtitle)">/mês</span>
             <small>Inclui IPTU e condomínio</small>
           </div>
         </div>
@@ -518,17 +566,13 @@ footer {
           <span class="prop-fav">♡</span>
         </div>
         <div class="prop-body">
-          <div class="prop-type">Chácara</div>
+          <div class="prop-city">Zona Rural · Lindoia – SP</div>
           <div class="prop-name">Chácara com lago e mata nativa</div>
-          <div class="prop-loc">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Zona Rural, Lindoia – SP
-          </div>
+          <div class="prop-type">Chácara · 5.000 m²</div>
           <div class="prop-details">
-            <span class="prop-detail">🛏 4 dorms</span>
-            <span class="prop-detail">🚿 3 banheiros</span>
-            <span class="prop-detail">🚗 4 vagas</span>
-            <span class="prop-detail">📐 5.000 m²</span>
+            <span class="prop-det">🛏 4 dorms</span>
+            <span class="prop-det">🚿 3 banheiros</span>
+            <span class="prop-det">🚗 4 vagas</span>
           </div>
           <div class="prop-price">
             R$ 1.400.000
@@ -544,16 +588,13 @@ footer {
           <span class="prop-fav">♡</span>
         </div>
         <div class="prop-body">
-          <div class="prop-type">Terreno</div>
+          <div class="prop-city">Vila Nova · Lindoia – SP</div>
           <div class="prop-name">Terreno plano em condomínio fechado</div>
-          <div class="prop-loc">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Vila Nova, Lindoia – SP
-          </div>
+          <div class="prop-type">Terreno · 360 m²</div>
           <div class="prop-details">
-            <span class="prop-detail">📐 360 m²</span>
-            <span class="prop-detail">✅ Escriturado</span>
-            <span class="prop-detail">🌿 Arborizdo</span>
+            <span class="prop-det">✅ Escriturado</span>
+            <span class="prop-det">🌿 Arborizado</span>
+            <span class="prop-det">🔒 Condomínio</span>
           </div>
           <div class="prop-price">
             R$ 320.000
@@ -564,25 +605,21 @@ footer {
       <!-- Card 5 -->
       <div class="prop-card">
         <div class="prop-thumb">
-          <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=75" alt="Apartamento temporada" loading="lazy">
-          <span class="prop-badge rent">Temporada</span>
+          <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=75" alt="Flat temporada" loading="lazy">
+          <span class="prop-badge temp">Temporada</span>
           <span class="prop-fav">♡</span>
         </div>
         <div class="prop-body">
-          <div class="prop-type">Apartamento</div>
+          <div class="prop-city">Centro · Lindoia – SP</div>
           <div class="prop-name">Flat para temporada, perto das Águas</div>
-          <div class="prop-loc">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Centro, Lindoia – SP
-          </div>
+          <div class="prop-type">Apartamento · 60 m²</div>
           <div class="prop-details">
-            <span class="prop-detail">🛏 2 dorms</span>
-            <span class="prop-detail">🚿 1 banheiro</span>
-            <span class="prop-detail">🐕 Pet friendly</span>
-            <span class="prop-detail">📐 60 m²</span>
+            <span class="prop-det">🛏 2 dorms</span>
+            <span class="prop-det">🐕 Pet friendly</span>
+            <span class="prop-det">🏊 Piscina</span>
           </div>
           <div class="prop-price">
-            R$ 350 <span style="font-size:13px;font-weight:500;color:var(--muted)">/diária</span>
+            R$ 350 <span style="font-size:12px;font-weight:500;color:var(--subtitle)">/diária</span>
             <small>Mínimo 2 diárias</small>
           </div>
         </div>
@@ -595,16 +632,13 @@ footer {
           <span class="prop-fav">♡</span>
         </div>
         <div class="prop-body">
-          <div class="prop-type">Sala Comercial</div>
+          <div class="prop-city">Centro · Lindoia – SP</div>
           <div class="prop-name">Sala em galeria comercial central</div>
-          <div class="prop-loc">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Centro, Lindoia – SP
-          </div>
+          <div class="prop-type">Sala Comercial · 42 m²</div>
           <div class="prop-details">
-            <span class="prop-detail">📐 42 m²</span>
-            <span class="prop-detail">🚗 1 vaga</span>
-            <span class="prop-detail">✅ Pronto usar</span>
+            <span class="prop-det">🚗 1 vaga</span>
+            <span class="prop-det">✅ Pronto usar</span>
+            <span class="prop-det">💼 Investimento</span>
           </div>
           <div class="prop-price">
             R$ 280.000
@@ -613,164 +647,85 @@ footer {
         </div>
       </div>
     </div>
+
     <div style="text-align:center;margin-top:40px">
-      <a href="https://wa.me/5519996673596?text=Olá! Quero ver mais imóveis disponíveis em Lindoia." class="btn btn-primary" style="padding:14px 32px;font-size:15px" target="_blank">
+      <a href="https://wa.me/5519996673596?text=Olá! Quero ver mais imóveis disponíveis em Lindoia." class="btn-primary" target="_blank">
         Ver todos os imóveis disponíveis →
       </a>
     </div>
   </div>
-</section>
-
-<!-- ABOUT -->
-<div class="section-full" id="sobre">
-  <div class="section">
-    <div class="about-grid">
-      <div class="about-img" style="position:relative">
-        <img src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=800&q=80" alt="Equipe Macedonia Imóveis">
-        <div class="about-badge">
-          <span class="about-badge-icon">🏆</span>
-          <div class="about-badge-text">
-            <strong>10+ Anos</strong>
-            <span>em Lindoia</span>
-          </div>
-        </div>
-      </div>
-      <div class="about-content">
-        <div class="s-label">Sobre a Macedonia Imóveis</div>
-        <h2 class="s-title">Sua parceira de confiança<br>em Lindoia</h2>
-        <p class="s-sub">
-          A Macedonia Imóveis é especializada na intermediação de compra, venda, locação e administração de imóveis residenciais e comerciais em Lindoia e região. Com atendimento personalizado e transparência em cada etapa, conectamos você ao imóvel certo.
-        </p>
-        <ul class="about-list">
-          <li>Mais de 150 imóveis vendidos e administrados</li>
-          <li>Equipe local com profundo conhecimento de Lindoia</li>
-          <li>Avaliação gratuita do seu imóvel</li>
-          <li>Consultoria completa de financiamento</li>
-          <li>Administração de aluguéis com total segurança</li>
-        </ul>
-        <a href="https://wa.me/5519996673596?text=Olá! Quero saber mais sobre a Macedonia Imóveis." class="btn btn-primary" style="padding:14px 28px;font-size:15px" target="_blank">
-          Falar com um corretor
-        </a>
-      </div>
-    </div>
-  </div>
 </div>
 
-<!-- SERVICES -->
-<section id="servicos">
-  <div class="section">
-    <div class="s-header" style="text-align:center">
-      <div class="s-label" style="justify-content:center;display:flex">O que fazemos</div>
-      <h2 class="s-title" style="margin:0 auto 14px">Soluções completas para<br>o seu imóvel</h2>
-      <p class="s-sub" style="margin:0 auto">Da venda à administração, cuidamos de tudo para você com agilidade e segurança.</p>
-    </div>
-    <div style="margin-top:40px" class="srv-grid">
-      <div class="srv-card">
-        <div class="srv-icon">🏠</div>
-        <div class="srv-title">Compra e Venda</div>
-        <p class="srv-desc">Avaliamos seu imóvel gratuitamente e encontramos o comprador ideal. Assessoria jurídica e documental completa do início ao fim.</p>
-      </div>
-      <div class="srv-card">
-        <div class="srv-icon">🔑</div>
-        <div class="srv-title">Locação</div>
-        <p class="srv-desc">Encontramos inquilinos qualificados com análise de crédito rigorosa. Contratos seguros e garantia de aluguel para o proprietário.</p>
-      </div>
-      <div class="srv-card">
-        <div class="srv-icon">📋</div>
-        <div class="srv-title">Administração</div>
-        <p class="srv-desc">Administramos seu imóvel com relatórios mensais, cobranças de aluguel, vistoria periódica e resolução de problemas com inquilinos.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- NEIGHBORHOODS -->
-<div class="section-full" id="bairros" style="background:var(--dark)">
-  <div class="section">
-    <div class="s-header-row" style="margin-bottom:32px">
+<!-- ══ NEIGHBORHOODS ══ -->
+<div class="section-wrap dark" id="bairros">
+  <div class="inner">
+    <div class="sec-head-row" style="margin-bottom:32px">
       <div>
-        <div class="s-label" style="color:var(--gold)">Regiões em destaque</div>
-        <h2 class="s-title" style="color:#fff">Atuamos em toda Lindoia<br>e região</h2>
+        <div class="sec-label" style="color:rgba(255,255,255,.5)">Regiões em destaque</div>
+        <h2 class="sec-title" style="color:#fff;margin-bottom:4px">Bairros para você</h2>
+        <p class="sec-sub" style="color:rgba(255,255,255,.55)">Somos especializados nas seguintes regiões.</p>
       </div>
     </div>
     <div class="nbr-grid">
       <div class="nbr-card">
         <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=400&q=75" alt="Centro" loading="lazy">
-        <div class="nbr-info">
-          <div class="nbr-name">Centro</div>
-          <div class="nbr-count">12 imóveis</div>
-        </div>
+        <div class="nbr-info"><div class="nbr-name">Centro</div><div class="nbr-count">12 imóveis</div></div>
       </div>
       <div class="nbr-card">
         <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=400&q=75" alt="Jardim do Lago" loading="lazy">
-        <div class="nbr-info">
-          <div class="nbr-name">Jardim do Lago</div>
-          <div class="nbr-count">8 imóveis</div>
-        </div>
+        <div class="nbr-info"><div class="nbr-name">Jardim do Lago</div><div class="nbr-count">8 imóveis</div></div>
       </div>
       <div class="nbr-card">
         <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&q=75" alt="Zona Rural" loading="lazy">
-        <div class="nbr-info">
-          <div class="nbr-name">Zona Rural</div>
-          <div class="nbr-count">15 imóveis</div>
-        </div>
+        <div class="nbr-info"><div class="nbr-name">Zona Rural</div><div class="nbr-count">15 imóveis</div></div>
       </div>
       <div class="nbr-card">
         <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&q=75" alt="Vila Nova" loading="lazy">
-        <div class="nbr-info">
-          <div class="nbr-name">Vila Nova</div>
-          <div class="nbr-count">6 imóveis</div>
-        </div>
+        <div class="nbr-info"><div class="nbr-name">Vila Nova</div><div class="nbr-count">6 imóveis</div></div>
       </div>
       <div class="nbr-card">
-        <img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=400&q=75" alt="Aguas de Lindoia" loading="lazy">
-        <div class="nbr-info">
-          <div class="nbr-name">Águas de Lindoia</div>
-          <div class="nbr-count">9 imóveis</div>
-        </div>
+        <img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=400&q=75" alt="Águas de Lindoia" loading="lazy">
+        <div class="nbr-info"><div class="nbr-name">Águas de Lindoia</div><div class="nbr-count">9 imóveis</div></div>
       </div>
       <div class="nbr-card">
         <img src="https://images.unsplash.com/photo-1560807707-8cc77767d783?w=400&q=75" alt="Serra Negra" loading="lazy">
-        <div class="nbr-info">
-          <div class="nbr-name">Serra Negra</div>
-          <div class="nbr-count">5 imóveis</div>
-        </div>
+        <div class="nbr-info"><div class="nbr-name">Serra Negra</div><div class="nbr-count">5 imóveis</div></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- CTA -->
-<div class="cta-banner" id="contato">
+<!-- ══ CTA ══ -->
+<div class="cta-section" id="contato">
   <h2>Pronto para encontrar seu imóvel ideal?</h2>
   <p>Fale agora com nossos corretores. Atendimento rápido e sem compromisso.</p>
   <div class="cta-btns">
-    <a href="https://wa.me/5519996673596?text=Olá! Quero mais informações sobre imóveis em Lindoia." class="btn btn-wa-lg" target="_blank" rel="noopener">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <a href="https://wa.me/5519996673596?text=Olá! Quero mais informações sobre imóveis em Lindoia." class="btn-wa-lg" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       (19) 99667-3596
     </a>
-    <a href="tel:+551939091988" class="btn btn-white">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+    <a href="tel:+551939091988" class="btn-white">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
       (19) 3909-1988
     </a>
   </div>
 </div>
 
-<!-- FOOTER -->
+<!-- ══ FOOTER ══ -->
 <footer>
-  <div class="footer-inner">
+  <div class="footer-main">
     <div>
       <div class="footer-logo">
         <img src="logo (3).jpg" alt="Macedonia Imóveis">
       </div>
       <p class="footer-desc">Vendemos, Alugamos e Administramos seu imóvel da melhor forma para você. Especialistas em Lindoia e região há mais de 10 anos.</p>
-      <div class="footer-contact">
+      <div class="footer-links-block">
         <a href="https://wa.me/5519996673596" target="_blank">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           (19) 99667-3596
         </a>
         <a href="tel:+551939091988">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
           (19) 3909-1988
         </a>
       </div>
@@ -806,24 +761,23 @@ footer {
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 Macedonia Imóveis · Lindoia, SP · CRECI-SP XXX.XXX-F</span>
-    <span>Site desenvolvido por <a href="https://conselhodigital.com" target="_blank">Conselho Digital</a></span>
+    <div class="footer-bottom-inner">
+      <span>© 2025 Macedonia Imóveis · Lindoia, SP · CRECI-SP XXX.XXX-F</span>
+      <span>Site desenvolvido por <a href="https://conselhodigital.com" target="_blank">Conselho Digital</a></span>
+    </div>
   </div>
 </footer>
 
-<!-- WA FLOAT -->
+<!-- ══ WA FLOAT ══ -->
 <a id="wa-float" href="https://wa.me/5519996673596?text=Olá! Vi o site e quero mais informações sobre imóveis em Lindoia." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
 <script>
-// Filter tabs (visual only for demo)
-document.querySelectorAll('.filter-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-  });
-});
+function setTab(el) {
+  document.querySelectorAll('.search-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+}
 </script>
 </body>
 </html>
