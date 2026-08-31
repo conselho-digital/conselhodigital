@@ -475,6 +475,42 @@ a { text-decoration: none; color: inherit; }
   .lst-card { flex: none; width: 100%; margin-left: 0; margin-top: -20px; }
 }
 
+/* ══ CORRETORES ══ */
+.corr-section { background: #272727; padding: 56px clamp(20px,5vw,80px) 72px; overflow: hidden; }
+.corr-inner { max-width: 1200px; margin: 0 auto; }
+.corr-header { text-align: right; margin-bottom: 40px; }
+.corr-title { font-size: clamp(32px,4.5vw,64px); font-weight: 800; color: #fff; }
+.corr-sub { font-size: 14px; color: rgba(255,255,255,.55); margin-top: 8px; }
+.corr-body { position: relative; display: flex; align-items: center; gap: 32px; }
+.corr-gold {
+  position: absolute;
+  left: 0; right: 120px;
+  top: 50%; transform: translateY(-50%);
+  height: 54%; background: #c18542;
+  border-radius: 0 12px 12px 0; z-index: 0;
+}
+.corr-cards { position: relative; z-index: 1; display: flex; align-items: center; gap: 16px; flex: 1; justify-content: center; }
+.corr-card {
+  background: #2e2e2e;
+  border-radius: 16px;
+  padding: 28px 24px 24px;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; gap: 8px;
+  border: 1px solid rgba(255,255,255,.08);
+}
+.corr-side { width: 220px; }
+.corr-center { width: 240px; padding: 36px 28px 28px; background: #252525; box-shadow: 0 12px 40px rgba(0,0,0,.5); }
+.corr-photo { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid #fff; }
+.corr-center .corr-photo { width: 96px; height: 96px; }
+.corr-name { font-size: 15px; font-weight: 600; color: #fff; margin-top: 4px; }
+.corr-creci { font-size: 12px; color: rgba(255,255,255,.45); }
+.corr-phone { display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 700; color: #fff; margin: 4px 0; }
+.corr-center .corr-phone { font-size: 18px; }
+.corr-btn { padding: 10px 20px; background: #c18542; border: none; border-radius: 999px; font-size: 12px; font-weight: 600; color: #fff; cursor: pointer; font-family: inherit; margin-top: 4px; white-space: nowrap; }
+.corr-nav { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+.corr-arrow { width: 44px; height: 44px; border-radius: 50%; border: 2px solid rgba(255,255,255,.3); background: transparent; color: #fff; font-size: 22px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.corr-page { font-size: 15px; color: #fff; }
+
 /* ══ SIMULADOR ══ */
 .sim-section { background: #222; padding: 60px clamp(20px,6vw,100px); }
 .sim-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 64px; align-items: center; }
@@ -1005,6 +1041,47 @@ a { text-decoration: none; color: inherit; }
       </div>
       <p class="sim-match">Encontramos 1 imóvel no seu perfil</p>
       <button class="sim-btn">VER OS IMÓVEIS</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CORRETORES ══ -->
+<section class="corr-section">
+  <div class="corr-inner">
+    <div class="corr-header">
+      <h2 class="corr-title">Nossos Corretores</h2>
+      <p class="corr-sub">Contate a nossa equipe de corretores e obtenha a melhor consultoria na escolha do seu imóvel</p>
+    </div>
+    <div class="corr-body">
+      <div class="corr-gold"></div>
+      <div class="corr-cards">
+        <div class="corr-card corr-side">
+          <img class="corr-photo" src="https://firebasestorage.googleapis.com/v0/b/imobzi-app-production.appspot.com/o/users%2Fji4AG3sih1gze4yrYemn5zJDm6M2%2Fprofile-photo?alt=media&token=7dd0cc4a-6427-496a-99fa-9cdf2156efe0" alt="Maria Helena">
+          <div class="corr-name">Maria Helena</div>
+          <div class="corr-creci">CRECI: 12345</div>
+          <div class="corr-phone"><svg width="20" height="20" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.99 2C6.477 2 2 6.477 2 11.99c0 1.777.46 3.448 1.27 4.9L2.05 22l5.275-1.38A9.935 9.935 0 0 0 11.99 22C17.52 22 22 17.522 22 11.99 22 6.477 17.523 2 11.99 2zm0 18c-1.61 0-3.11-.437-4.4-1.197l-.314-.187-3.126.82.836-3.04-.207-.327A7.944 7.944 0 0 1 4 11.99C4 7.58 7.58 4 11.99 4 16.42 4 20 7.58 20 11.99 20 16.42 16.42 20 11.99 20z"/></svg> (11) 99999-9999</div>
+          <button class="corr-btn">Veja imóveis deste corretor</button>
+        </div>
+        <div class="corr-card corr-center">
+          <img class="corr-photo" src="https://firebasestorage.googleapis.com/v0/b/imobzi-app-production.appspot.com/o/users%2FkjQhxAHjaYdllAJptB144J9Aiev2%2Fprofile-photo?alt=media&token=92e6e079-93e8-4c33-82fd-bed18b37b5b4" alt="João Carmo">
+          <div class="corr-name">João Carmo</div>
+          <div class="corr-creci">CRECI: 55555</div>
+          <div class="corr-phone"><svg width="20" height="20" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.99 2C6.477 2 2 6.477 2 11.99c0 1.777.46 3.448 1.27 4.9L2.05 22l5.275-1.38A9.935 9.935 0 0 0 11.99 22C17.52 22 22 17.522 22 11.99 22 6.477 17.523 2 11.99 2zm0 18c-1.61 0-3.11-.437-4.4-1.197l-.314-.187-3.126.82.836-3.04-.207-.327A7.944 7.944 0 0 1 4 11.99C4 7.58 7.58 4 11.99 4 16.42 4 20 7.58 20 11.99 20 16.42 16.42 20 11.99 20z"/></svg> (11) 99999-9999</div>
+          <button class="corr-btn">Veja imóveis deste corretor</button>
+        </div>
+        <div class="corr-card corr-side">
+          <img class="corr-photo" src="https://firebasestorage.googleapis.com/v0/b/imobzi-app-production.appspot.com/o/users%2FASdQn09ljSZlNTTbgLjR1CnFmj82%2Fprofile-photo?alt=media&token=e68a2260-aabe-497d-a65c-18ea72e036f3" alt="Amanda Leão">
+          <div class="corr-name">Amanda Leão</div>
+          <div class="corr-creci">CRECI: 11111</div>
+          <div class="corr-phone"><svg width="20" height="20" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.99 2C6.477 2 2 6.477 2 11.99c0 1.777.46 3.448 1.27 4.9L2.05 22l5.275-1.38A9.935 9.935 0 0 0 11.99 22C17.52 22 22 17.522 22 11.99 22 6.477 17.523 2 11.99 2zm0 18c-1.61 0-3.11-.437-4.4-1.197l-.314-.187-3.126.82.836-3.04-.207-.327A7.944 7.944 0 0 1 4 11.99C4 7.58 7.58 4 11.99 4 16.42 4 20 7.58 20 11.99 20 16.42 16.42 20 11.99 20z"/></svg></div>
+          <button class="corr-btn">Veja imóveis deste corretor</button>
+        </div>
+      </div>
+      <div class="corr-nav">
+        <button class="corr-arrow">&#8249;</button>
+        <span class="corr-page">1/1</span>
+        <button class="corr-arrow">&#8250;</button>
+      </div>
     </div>
   </div>
 </section>
