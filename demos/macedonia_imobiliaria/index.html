@@ -365,6 +365,98 @@ a { text-decoration: none; color: inherit; }
   .reels-grid { grid-template-columns: 1fr 1fr; }
 }
 
+/* ════════════════════════════════════════
+   LISTINGS CAROUSEL
+════════════════════════════════════════ */
+.listings-section {
+  background: #333;
+  position: relative;
+  padding: 56px 0 64px;
+  overflow: hidden;
+}
+.listings-gold-band {
+  position: absolute;
+  top: 50%; left: 0;
+  transform: translateY(-50%);
+  width: 75%;
+  height: 55%;
+  background: #c18542;
+  border-radius: 0 14px 14px 0;
+}
+.listings-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+/* arrows row */
+.listings-arrows {
+  display: flex; gap: 10px;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+.lst-arrow {
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,.4);
+  background: transparent; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color .15s;
+}
+.lst-arrow:hover { border-color: #fff; }
+/* slide */
+.listings-track { overflow: hidden; }
+.listings-slide {
+  display: none;
+  align-items: center;
+  gap: 0;
+}
+.listings-slide.active { display: flex; }
+/* image */
+.lst-img-wrap {
+  position: relative;
+  flex: 0 0 58%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.lst-img-wrap img {
+  width: 100%; aspect-ratio: 4/3;
+  object-fit: cover; display: block;
+}
+.lst-dots {
+  position: absolute;
+  bottom: 16px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; gap: 8px;
+}
+.lst-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: rgba(255,255,255,.4); cursor: pointer; border: none;
+  transition: background .2s;
+}
+.lst-dot.active { background: #c18542; }
+/* info card */
+.lst-card {
+  flex: 0 0 36%;
+  margin-left: -4%;
+  background: #3a3a3a;
+  border-radius: 12px;
+  padding: 36px 32px;
+  position: relative;
+  z-index: 2;
+}
+.lst-city { font-size: 14px; color: rgba(255,255,255,.6); font-weight: 400; margin-bottom: 6px; }
+.lst-neighborhood { font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 16px; line-height: 1.15; }
+.lst-type { font-size: 13px; color: rgba(255,255,255,.7); margin-bottom: 6px; }
+.lst-desc { font-size: 13px; color: rgba(255,255,255,.6); line-height: 1.6; margin-bottom: 18px; }
+.lst-price { font-size: 18px; font-weight: 600; color: #c18542; }
+
+@media(max-width:768px){
+  .listings-slide { flex-direction: column; }
+  .lst-img-wrap { flex: none; width: 100%; }
+  .lst-card { flex: none; width: 100%; margin-left: 0; margin-top: -20px; }
+}
+
 /* ── bottom-right chat bubble (visible in screenshot) ── */
 .bubble {
   position: absolute;
@@ -592,7 +684,126 @@ a { text-decoration: none; color: inherit; }
   </div>
 </section>
 
+<!-- ══ LISTINGS CAROUSEL ══ -->
+<section class="listings-section">
+  <div class="listings-gold-band"></div>
+  <div class="listings-inner">
+
+    <div class="listings-arrows">
+      <button class="lst-arrow" onclick="lstPrev()" aria-label="Anterior">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,18 9,12 15,6"/></svg>
+      </button>
+      <button class="lst-arrow" onclick="lstNext()" aria-label="Próximo">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"/></svg>
+      </button>
+    </div>
+
+    <div class="listings-track" id="lstTrack">
+
+      <div class="listings-slide active">
+        <div class="lst-img-wrap">
+          <img src="https://lh3.googleusercontent.com/DdXCGUewwOs12L0KPggPG9yHS8arvhHgkOXlnk6q58b7McaP6RoSacpvbu7NiqQThlIapihCe6i2X2eT4_9EvAazzm5n-mkpVE0ut7OrqEu5J2-vXqfOEQw=s1000" alt="Vila Olímpia">
+          <div class="lst-dots" id="lstDots"></div>
+        </div>
+        <div class="lst-card">
+          <div class="lst-city">São Paulo</div>
+          <h3 class="lst-neighborhood">Vila Olímpia</h3>
+          <p class="lst-type">Conjunto para venda e locação, 38 m²</p>
+          <p class="lst-desc">Florida e um dos condomínios mais completos da região - Logo na entrada você se ...</p>
+          <div class="lst-price">R$ 2.000.000</div>
+        </div>
+      </div>
+
+      <div class="listings-slide">
+        <div class="lst-img-wrap">
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=75" alt="Brooklin">
+          <div class="lst-dots" id="lstDots2"></div>
+        </div>
+        <div class="lst-card">
+          <div class="lst-city">São Paulo</div>
+          <h3 class="lst-neighborhood">Brooklin</h3>
+          <p class="lst-type">Apartamento para venda e locação, 150 m²</p>
+          <p class="lst-desc">Imóvel já vem mobiliado e possui piano na sala.</p>
+          <div class="lst-price">R$ 1.500.000</div>
+        </div>
+      </div>
+
+      <div class="listings-slide">
+        <div class="lst-img-wrap">
+          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=75" alt="Moema">
+          <div class="lst-dots" id="lstDots3"></div>
+        </div>
+        <div class="lst-card">
+          <div class="lst-city">São Paulo</div>
+          <h3 class="lst-neighborhood">Moema</h3>
+          <p class="lst-type">Duplex para venda e locação, 79 m²</p>
+          <p class="lst-desc">Florida e um dos condomínios mais completos da região - Logo na entrada você se ...</p>
+          <div class="lst-price">R$ 9.500.000</div>
+        </div>
+      </div>
+
+      <div class="listings-slide">
+        <div class="lst-img-wrap">
+          <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=75" alt="Campo Belo">
+          <div class="lst-dots" id="lstDots4"></div>
+        </div>
+        <div class="lst-card">
+          <div class="lst-city">São Paulo</div>
+          <h3 class="lst-neighborhood">Campo Belo</h3>
+          <p class="lst-type">Triplex para venda e locação, 81 m²</p>
+          <p class="lst-desc">Florida e um dos condomínios mais completos da região - Logo na entrada você se ...</p>
+          <div class="lst-price">R$ 3.000.000</div>
+        </div>
+      </div>
+
+      <div class="listings-slide">
+        <div class="lst-img-wrap">
+          <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=800&q=75" alt="Cidade Monções">
+          <div class="lst-dots" id="lstDots5"></div>
+        </div>
+        <div class="lst-card">
+          <div class="lst-city">São Paulo</div>
+          <h3 class="lst-neighborhood">Cidade Monções</h3>
+          <p class="lst-type">Duplex para venda e locação, 105 m²</p>
+          <p class="lst-desc">Florida e um dos condomínios mais completos da região - Logo na entrada você se ...</p>
+          <div class="lst-price">R$ 14.000.000</div>
+        </div>
+      </div>
+
+    </div><!-- /track -->
+  </div>
+</section>
+
 <!-- more sections will be added here -->
 
+<script>
+// Listings carousel
+const lstSlides = document.querySelectorAll('.listings-slide');
+let lstCurrent = 0;
+const total = lstSlides.length;
+
+// build dots once in first slide's dot container
+const dotWrap = document.querySelector('.lst-dots');
+for (let i = 0; i < total; i++) {
+  const b = document.createElement('button');
+  b.className = 'lst-dot' + (i === 0 ? ' active' : '');
+  b.onclick = () => lstGo(i);
+  dotWrap.appendChild(b);
+}
+// remove duplicate dot containers from other slides
+document.querySelectorAll('.lst-dots').forEach((d,i) => { if(i>0) d.remove(); });
+
+function lstShow(n) {
+  lstSlides[lstCurrent].classList.remove('active');
+  lstCurrent = (n + total) % total;
+  lstSlides[lstCurrent].classList.add('active');
+  document.querySelectorAll('.lst-dot').forEach((d,i) => d.classList.toggle('active', i===lstCurrent));
+}
+function lstNext() { lstShow(lstCurrent + 1); }
+function lstPrev() { lstShow(lstCurrent - 1); }
+function lstGo(n)  { lstShow(n); }
+
+setInterval(lstNext, 3000);
+</script>
 </body>
 </html>
