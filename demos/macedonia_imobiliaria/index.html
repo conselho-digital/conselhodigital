@@ -475,6 +475,31 @@ a { text-decoration: none; color: inherit; }
   .lst-card { flex: none; width: 100%; margin-left: 0; margin-top: -20px; }
 }
 
+/* ══ FOOTER ══ */
+.footer { background: #1c1c1c; padding: 56px clamp(20px,6vw,100px) 0; }
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+.footer-top { display: grid; grid-template-columns: 1.4fr 1fr 0.7fr; gap: 48px; margin-bottom: 48px; }
+.ft-logo { max-width: 180px; max-height: 80px; object-fit: contain; display: block; margin-bottom: 10px; }
+.ft-logo-fallback { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+.ft-bold { font-weight: 800; color: #c18542; }
+.ft-tagline { font-size: 11px; color: rgba(255,255,255,.3); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; }
+.ft-address { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.6; margin-bottom: 10px; }
+.ft-company { font-size: 12px; color: rgba(255,255,255,.3); }
+.ft-phone { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 6px; }
+.ft-email { font-size: 13px; color: rgba(255,255,255,.5); margin-bottom: 20px; }
+.ft-social { display: flex; gap: 10px; }
+.ft-soc-icon { width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,.25); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.7); text-decoration: none; transition: border-color .2s; }
+.ft-soc-icon:hover { border-color: #c18542; color: #c18542; }
+.ft-google { display: flex; align-items: center; gap: 10px; }
+.footer-divider { height: 1px; background: rgba(255,255,255,.08); margin-bottom: 36px; }
+.footer-links { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; margin-bottom: 48px; }
+.fl-title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 14px; }
+.fl-link { display: block; font-size: 13px; color: #c18542; text-decoration: none; margin-bottom: 8px; }
+.fl-link:hover { text-decoration: underline; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,.06); padding: 20px 0; text-align: center; font-size: 12px; color: rgba(255,255,255,.3); }
+.ft-cd { color: #c18542; text-decoration: none; font-weight: 600; }
+@media(max-width:768px){ .footer-top,.footer-links { grid-template-columns: 1fr; } }
+
 /* ══ CORRETORES ══ */
 .corr-section { background: #272727; padding: 56px clamp(20px,5vw,80px) 72px; overflow: hidden; }
 .corr-inner { max-width: 1200px; margin: 0 auto; }
@@ -1085,6 +1110,77 @@ a { text-decoration: none; color: inherit; }
     </div>
   </div>
 </section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <!-- Col 1: logo + info -->
+      <div class="ft-brand">
+        <img src="logo.jpg" alt="Macedonia Imobiliária" class="ft-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="ft-logo-fallback" style="display:none">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#c18542" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 20L24 6l16 14v22H30V30h-12v12H8z"/><rect x="20" y="30" width="8" height="12"/></svg>
+          <div><span class="ft-bold">MACEDONIA</span> IMOBILIÁRIA</div>
+        </div>
+        <div class="ft-tagline">Macedonia Imobiliária</div>
+        <div class="ft-address">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c18542" stroke-width="2" stroke-linecap="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Avenida das Nações Unidas, 18802, Conj. 309 – Jardim Promissão – São Paulo – SP
+        </div>
+        <div class="ft-company">Macedonia Imobiliária Ltda</div>
+      </div>
+      <!-- Col 2: contato + social -->
+      <div class="ft-contact">
+        <div class="ft-phone">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.99 2C6.477 2 2 6.477 2 11.99c0 1.777.46 3.448 1.27 4.9L2.05 22l5.275-1.38A9.935 9.935 0 0 0 11.99 22C17.52 22 22 17.522 22 11.99 22 6.477 17.523 2 11.99 2zm0 18c-1.61 0-3.11-.437-4.4-1.197l-.314-.187-3.126.82.836-3.04-.207-.327A7.944 7.944 0 0 1 4 11.99C4 7.58 7.58 4 11.99 4 16.42 4 20 7.58 20 11.99 20 16.42 16.42 20 11.99 20z"/></svg>
+          (11) 4063-4100
+        </div>
+        <div class="ft-email">suporte@macedoniaimoveis.com.br</div>
+        <div class="ft-social">
+          <a href="#" class="ft-soc-icon" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" class="ft-soc-icon" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" class="ft-soc-icon" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.45A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.97C5.12 20 12 20 12 20s6.88 0 8.59-.45a2.78 2.78 0 0 0 1.95-1.97A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" class="ft-soc-icon" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+      <!-- Col 3: Google badge -->
+      <div class="ft-badge">
+        <div class="ft-google">
+          <svg width="32" height="32" viewBox="0 0 32 32"><path d="M16 2L4 8v10c0 7.18 5.1 13.88 12 15.5C23.9 31.88 29 25.18 29 18V8L16 2z" fill="#1a8a3e"/><path d="M13 20l-4-4 1.4-1.4L13 17.2l8.6-8.6L23 10z" fill="#fff"/></svg>
+          <div><div style="font-size:13px;font-weight:700;color:#4285f4">Google</div><div style="font-size:10px;color:rgba(255,255,255,.5)">Site Seguro</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <div class="footer-links">
+      <div class="fl-col">
+        <div class="fl-title">Empresa</div>
+        <a href="#" class="fl-link">Quem Somos</a>
+        <a href="#" class="fl-link">Política de Privacidade</a>
+      </div>
+      <div class="fl-col">
+        <div class="fl-title">Imóveis</div>
+        <a href="#" class="fl-link">com Tour Virtual 360°</a>
+        <a href="#" class="fl-link">para Locação</a>
+        <a href="#" class="fl-link">para Comprar</a>
+        <a href="#" class="fl-link">de Lançamento</a>
+        <a href="#" class="fl-link">para Temporada</a>
+      </div>
+      <div class="fl-col">
+        <div class="fl-title">Serviços</div>
+        <a href="#" class="fl-link">Peça seu imóvel</a>
+        <a href="#" class="fl-link">Anuncie seu imóvel</a>
+        <a href="#" class="fl-link">Simule um Financiamento</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      Feito por <a href="https://conselhodigital.com.br" class="ft-cd" target="_blank">Conselho Digital</a>
+    </div>
+  </div>
+</footer>
 
 <script>
 // Listings carousel
