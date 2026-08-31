@@ -405,13 +405,31 @@ a { text-decoration: none; color: inherit; }
 }
 .lst-arrow:hover { border-color: #fff; }
 /* slide */
-.listings-track { overflow: hidden; }
+.listings-track {
+  position: relative;
+  overflow: hidden;
+  /* height set by tallest slide */
+}
 .listings-slide {
-  display: none;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  display: flex;
   align-items: center;
   gap: 0;
+  transform: translateX(100%);
+  transition: transform .6s cubic-bezier(.4,0,.2,1);
+  visibility: hidden;
 }
-.listings-slide.active { display: flex; }
+.listings-slide.active {
+  position: relative;
+  transform: translateX(0);
+  visibility: visible;
+}
+.listings-slide.slide-out {
+  position: absolute;
+  transform: translateX(-100%);
+  visibility: visible;
+}
 /* image */
 .lst-img-wrap {
   position: relative;
@@ -794,9 +812,15 @@ for (let i = 0; i < total; i++) {
 document.querySelectorAll('.lst-dots').forEach((d,i) => { if(i>0) d.remove(); });
 
 function lstShow(n) {
-  lstSlides[lstCurrent].classList.remove('active');
+  const prev = lstSlides[lstCurrent];
   lstCurrent = (n + total) % total;
-  lstSlides[lstCurrent].classList.add('active');
+  const next = lstSlides[lstCurrent];
+
+  prev.classList.add('slide-out');
+  prev.classList.remove('active');
+  next.classList.add('active');
+
+  setTimeout(() => prev.classList.remove('slide-out'), 650);
   document.querySelectorAll('.lst-dot').forEach((d,i) => d.classList.toggle('active', i===lstCurrent));
 }
 function lstNext() { lstShow(lstCurrent + 1); }
