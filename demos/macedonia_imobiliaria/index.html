@@ -638,6 +638,201 @@ a { text-decoration: none; color: inherit; }
   box-shadow: 0 4px 14px rgba(0,0,0,.25);
   cursor: pointer;
 }
+/* ══════════════════════════════════════════
+   LIQUID GLASS  (taste-skill / redesign-skill)
+   Applied: glassmorphism with specular edges,
+   ambient glows, spring micro-interactions
+══════════════════════════════════════════ */
+
+/* ─ tokens ─ */
+:root {
+  --glass-bg:       rgba(255,255,255,.07);
+  --glass-border:   rgba(255,255,255,.14);
+  --glass-shine:    rgba(255,255,255,.18);
+  --glass-shadow:   0 8px 40px rgba(0,0,0,.45),
+                    inset 0 1px 0 var(--glass-shine);
+  --glass-blur:     blur(28px) saturate(160%);
+  --gold-glow:      rgba(193,133,66,.35);
+  --spring:         cubic-bezier(.34,1.56,.64,1);
+}
+
+/* ─ nav glass ─ */
+#nav {
+  background: rgba(10,10,10,.18);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--glass-border);
+  transition: background .4s ease;
+}
+#nav.scrolled {
+  background: rgba(10,10,10,.72);
+}
+
+/* ─ values strip → glass ─ */
+.values-strip {
+  background: rgba(30,30,30,.55);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-bottom: none;
+  box-shadow: var(--glass-shadow);
+}
+
+/* each value column → subtle glass card on hover */
+.val-col {
+  padding: 24px 20px;
+  border-radius: 12px;
+  transition: background .3s ease, transform .35s var(--spring);
+}
+.val-col:hover {
+  background: rgba(255,255,255,.06);
+  transform: translateY(-4px);
+}
+
+/* ─ about section: glass panel for text ─ */
+.about-text {
+  background: rgba(0,0,0,.18);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 16px;
+  padding: 40px 36px;
+  box-shadow: var(--glass-shadow);
+}
+
+/* ─ listings card → glass ─ */
+.lst-card {
+  background: rgba(30,28,28,.55) !important;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border) !important;
+  box-shadow: var(--glass-shadow);
+}
+
+/* ─ reel cards → glass overlay ─ */
+.reel-card::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,.15) 0%,
+    rgba(0,0,0,.0) 35%,
+    rgba(0,0,0,.0) 55%,
+    rgba(0,0,0,.75) 100%
+  );
+}
+.reel-header, .reel-footer {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* ─ tags (pills) → glass ─ */
+.tag {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
+  border-color: var(--glass-border);
+  box-shadow: inset 0 1px 0 var(--glass-shine);
+  transition: background .2s, border-color .2s, transform .25s var(--spring), color .2s;
+}
+.tag:hover {
+  background: rgba(193,133,66,.18);
+  border-color: #c18542;
+  color: #c18542;
+  transform: translateY(-2px);
+}
+
+/* ─ bairros cards → lift + glow on hover ─ */
+.bcard {
+  transition: transform .4s var(--spring), box-shadow .4s ease;
+  box-shadow: 0 4px 24px rgba(0,0,0,.4);
+}
+.bcard:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 16px 48px rgba(0,0,0,.6), 0 0 0 1px var(--glass-border);
+}
+
+/* ─ corretor cards → glass ─ */
+.corr-card {
+  background: rgba(36,34,34,.55) !important;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border) !important;
+  box-shadow: var(--glass-shadow);
+  transition: transform .4s var(--spring), box-shadow .4s ease;
+}
+.corr-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 56px rgba(0,0,0,.55), 0 0 0 1px rgba(193,133,66,.3),
+              inset 0 1px 0 var(--glass-shine);
+}
+.corr-center {
+  background: rgba(20,18,18,.7) !important;
+}
+
+/* ─ simulator → glass panels ─ */
+.sim-section {
+  position: relative;
+  overflow: hidden;
+}
+.sim-section::before {
+  content: '';
+  position: absolute;
+  width: 520px; height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
+  top: -120px; right: -80px;
+  pointer-events: none;
+}
+.sim-left, .sim-right {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: var(--glass-shadow);
+}
+.sim-inner {
+  align-items: stretch;
+}
+.sim-tabs {
+  background: rgba(255,255,255,.06);
+  border: 1px solid var(--glass-border);
+}
+.sim-tab {
+  color: rgba(255,255,255,.6);
+}
+.sim-tab.active {
+  background: #c18542;
+  box-shadow: 0 2px 12px rgba(193,133,66,.45);
+}
+
+/* ─ gold band sections: ambient glow blobs ─ */
+.reels-section::before,
+.listings-section::before {
+  content: '';
+  position: absolute;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(193,133,66,.2) 0%, transparent 70%);
+  top: 50%; right: 10%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─ buttons: spring press ─ */
+.btn-saiba, .corr-btn, .sim-btn, .lst-cta {
+  transition: transform .25s var(--spring), box-shadow .25s ease, background .2s;
+}
+.btn-saiba:active, .corr-btn:active, .sim-btn:active, .lst-cta:active {
+  transform: scale(.97) translateY(1px);
+}
+.sim-btn:hover, .corr-btn:hover {
+  box-shadow: 0 4px 20px rgba(193,133,66,.5);
+  background: #d4955a;
+}
+
+/* ─ nav scroll JS class ─ */
 </style>
 </head>
 <body>
@@ -1214,6 +1409,15 @@ function lstShow(n) {
 function lstNext() { lstShow(lstCurrent + 1); }
 function lstPrev() { lstShow(lstCurrent - 1); }
 function lstGo(n)  { lstShow(n); }
+
+// ── nav glass on scroll ──
+(function(){
+  const nav = document.getElementById('nav');
+  if(!nav) return;
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, {passive: true});
+})();
 
 // ── SIMULADOR ──
 (function(){
