@@ -9,7 +9,7 @@ export default async function LoginPage({
   searchParams: Promise<{ error?: string; callbackUrl?: string }>
 }) {
   const session = await auth()
-  if (session) redirect('/admin')
+  if (session) redirect('/pnel')
 
   const { error } = await searchParams
 
@@ -51,7 +51,7 @@ export default async function LoginPage({
 
         <form action={async () => {
           'use server'
-          await signIn('google', { redirectTo: '/admin' })
+          await signIn('google', { redirectTo: '/pnel' })
         }}>
           <button type="submit" style={{
             width: '100%', padding: '13px 20px',
